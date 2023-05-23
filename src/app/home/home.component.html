@@ -1,0 +1,48 @@
+<section>
+
+  <div class="bloco">
+    <div class="bloco-menu">
+      <div class="botao-menu">Home</div>
+      <div class="fixo">PUBLICO</div>
+      <div class="botao-menu">Perguntas</div>
+      <div class="botao-menu">Categorias</div>
+      <div class="botao-menu">Usuarios</div>
+    </div>
+
+    <div class="bloco-lista">
+      <div class="header">
+        <div class="perguntas">
+          <h1>Ultimas perguntas</h1>
+          <div class="botao">
+            Faça uma pergunta
+          </div>
+        </div>
+      </div>
+
+      <div class="lista" *ngFor="let postagem of this.listaPostagens">
+        <div class="status">
+            <p class="valor"><strong>{{postagem.gostei}} votos</strong></p>
+            <p class="valor">{{this.calculaInteracoes(postagem)}} interações</p>
+            <p class="valor">{{postagem.visualizacao}} views</p>
+        </div>
+        <div class="pergunta">
+          <a routerLink="" class="titulo">{{postagem.titulo}}</a>
+          <div class="criacao">
+            <div class="categoria">
+              {{postagem.categoria.nome}}
+            </div>
+            <div class="usuario">
+              <div class="img">
+                <img [src]="postagem.usuario.img" [alt]="postagem.usuario.nome" />
+              </div>
+              <p class="nome-perfil">{{postagem.usuario.nome}}</p>
+              <div class="qtd-postagens">{{this.calculaQtdPostagensUsuario(postagem.usuario)}} {{this.renderizaPlural(postagem.usuario)}}</div>
+              <div class="data">{{this.calculaTempoPostagem(postagem.data)}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</section>

@@ -1,1 +1,46 @@
 /* You can add global styles to this file, and also import other style files */
+
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;200;300;400;500;600;700;800;900&display=swap');
+
+* {
+  padding: 0;
+  margin: 0;
+
+}
+
+html, body {
+  font-family: var(--font-noto-sans);
+  font-size: 17px;
+
+  background-color: var(--background-color-default);
+
+}
+
+:root {
+  --font-noto-sans: 'Noto Sans JP', sans-serif;
+
+  --border-gray: #d6d9dc;
+
+  --button-border-right-hover-color: #F48225;
+  --background-color-button-hover: #F1F2F3;
+
+  --background-color-default: #FFFFFF;
+  --background-color-blue: #0074CC;
+  --background-color-blue-hover: #0165b1;
+  --background-color-black-footer: #232629;
+  --background-color-blue-categoria: #e1ecf4;
+
+  --color-icons: #F48225;
+
+  --text-color-white: #ffffff;
+  --text-color-blue: #0074cc;
+  --text-color-blue-categoria: #39739d;
+  --text-color-black-menu-hover: #0c0d0e;
+  --text-color-gray-post: #6a737c;
+  --text-color-gray-menu: #525960;
+  --text-color-black-text-title-post: #3b4045;
+  --text-color-gray-text-post: #232629;
+  --text-color-gray-value: #64747c;
+
+
+}

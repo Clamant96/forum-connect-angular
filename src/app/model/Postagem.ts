@@ -13,5 +13,7 @@ export class Postagem {
 	public comentarios: Comentario[];
 	public respostas: Resposta[];
 	public usuario: Usuario;
+  public visualizacao: number;
+  public data: Date;
 
 }
