@@ -21,6 +21,7 @@ export class HomeComponent implements OnInit {
     window.scroll(0, 0);
 
     this.getAllPostagens();
+    this.renderizaBotaoMenu();
 
   }
 
@@ -74,25 +75,20 @@ export class HomeComponent implements OnInit {
 
   calculaTempoPostagem(data: Date) {
 
-    console.log(data);
-
     let date_1: Date = new Date(data);
     let date_2: Date = new Date();
-
-    let difference = date_1.getTime() - date_2.getTime();
-    let TotalDays = Math.ceil(difference / (1000 * 3600 * 24));
 
     if(date_1.getDay() == date_2.getDay()) {
 
       return this.diffTime(`${date_1.getHours()}:${date_1.getMinutes()}`, `${date_2.getHours()}:${date_2.getMinutes()}`);
     }else {
 
-      if((date_1.getDay() - date_2.getDay()) == 1) {
+      if((Math.abs(date_1.getDay() - date_2.getDay())) == 1) {
 
-        return date_1.getDay() - date_2.getDay() +" dia";
+        return Math.abs(date_1.getDay() - date_2.getDay()) +" dia";
       }
 
-      return date_1.getDay() - date_2.getDay() +" dias";
+      return Math.abs(date_1.getDay() - date_2.getDay()) +" dias";
     }
 
   }
@@ -125,6 +121,28 @@ export class HomeComponent implements OnInit {
       return "" + this.pad(h) + "h" + this.pad(m) +"min";
     }
 
+  }
+
+  renderizaBotaoMenu() {
+
+    if(window.document.URL.includes("home")) {
+      window.document.querySelector('section .bloco .bloco-menu #home')?.setAttribute('style', 'background-color: var(--background-color-button-hover); color: var(--text-color-black-menu-hover); font-weight: bold; border-right: 3px solid var(--button-border-right-hover-color); margin-left: 0%; width: 90%;');
+
+    }
+
+  }
+
+  renderizaAnotacoes(){
+    const anotacoes = [
+      {
+        descricao: "Criação de listagens de postagens"
+      },
+      {
+        descricao: "Criação de menus"
+      }
+    ];
+
+    return anotacoes;
   }
 
 }

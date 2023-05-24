@@ -20,6 +20,7 @@ html, body {
   --font-noto-sans: 'Noto Sans JP', sans-serif;
 
   --border-gray: #d6d9dc;
+  --border-color-anotacao: #f0e0a4;
 
   --button-border-right-hover-color: #F48225;
   --background-color-button-hover: #F1F2F3;
@@ -29,6 +30,8 @@ html, body {
   --background-color-blue-hover: #0165b1;
   --background-color-black-footer: #232629;
   --background-color-blue-categoria: #e1ecf4;
+  --background-color-anotacao-header: #FBF3D5;
+  --background-color-anotacao-section: #FDF7E2;
 
   --color-icons: #F48225;
 
@@ -41,6 +44,5 @@ html, body {
   --text-color-black-text-title-post: #3b4045;
   --text-color-gray-text-post: #232629;
   --text-color-gray-value: #64747c;
-
 
 }

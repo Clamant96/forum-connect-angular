@@ -19,8 +19,10 @@ section .bloco {
 }
 
 section .bloco .bloco-menu {
-  width: 20%;
-  height: 100vh;
+  padding-top: 1.5%;
+
+  width: 13%;
+  height: 97.5vh;
 
   display: flex;
   align-items: center;
@@ -65,28 +67,35 @@ section .bloco .bloco-menu .botao-menu {
 }
 
 section .bloco .bloco-menu .botao-menu:hover {
-  background-color: var(--background-color-button-hover);
-
   color: var(--text-color-black-menu-hover);
-
-  font-weight: bold;
-
-  border-right: 3px solid var(--button-border-right-hover-color);
-
-  margin-left: 0%;
-
-  width: 90%;
 
 }
 
 /* CONFIGURACAO LISTA POSTAGENS */
-section .bloco .bloco-lista {
-  width: 80%;
+section .bloco .bloco-lista-anotacao {
+  width: 87%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  overflow-y: scroll;
+
+}
+
+section .bloco .bloco-lista-anotacao::-webkit-scrollbar {
+  display: none;
+
+}
+
+section .bloco .bloco-lista-anotacao .bloco-lista {
+  width: 100%;
   height: auto;
 
 }
 
-section .bloco .bloco-lista .header {
+section .bloco .bloco-lista-anotacao .bloco-lista .header {
   width: 100%;
   height: auto;
 
@@ -98,7 +107,7 @@ section .bloco .bloco-lista .header {
 
 }
 
-section .bloco .bloco-lista .header .perguntas {
+section .bloco .bloco-lista-anotacao .bloco-lista .header .perguntas {
   margin-top: 2vh;
 
   width: 95%;
@@ -110,13 +119,13 @@ section .bloco .bloco-lista .header .perguntas {
 
 }
 
-section .bloco .bloco-lista .header .perguntas h1 {
+section .bloco .bloco-lista-anotacao .bloco-lista .header .perguntas h1 {
   font-weight: 27px;
   font-weight: normal;
 
 }
 
-section .bloco .bloco-lista .header .perguntas .botao {
+section .bloco .bloco-lista-anotacao .bloco-lista .header .perguntas .botao {
   padding: 1% 1.5%;
   display: flex;
   align-items: center;
@@ -136,12 +145,12 @@ section .bloco .bloco-lista .header .perguntas .botao {
 
 }
 
-section .bloco .bloco-lista .header .perguntas .botao:hover {
+section .bloco .bloco-lista-anotacao .bloco-lista .header .perguntas .botao:hover {
   background-color: var(--background-color-blue-hover);
 
 }
 
-section .bloco .bloco-lista .lista {
+section .bloco .bloco-lista-anotacao .bloco-lista .lista {
   padding: 1.5% 0%;
 
   width: 100%;
@@ -155,13 +164,13 @@ section .bloco .bloco-lista .lista {
 
 }
 
-section .bloco .bloco-lista .lista .status {
+section .bloco .bloco-lista-anotacao .bloco-lista .lista .status {
   width: 20%;
   height: auto;
 
 }
 
-section .bloco .bloco-lista .lista .status .valor {
+section .bloco .bloco-lista-anotacao .bloco-lista .lista .status .valor {
   padding: 2% 0%;
 
   width: 96%;
@@ -175,14 +184,14 @@ section .bloco .bloco-lista .lista .status .valor {
 
 }
 
-section .bloco .bloco-lista .lista .status .valor strong {
+section .bloco .bloco-lista-anotacao .bloco-lista .lista .status .valor strong {
   color: var(--text-color-black-menu-hover);
 
   font-weight: normal;
 
 }
 
-section .bloco .bloco-lista .lista .pergunta {
+section .bloco .bloco-lista-anotacao .bloco-lista .lista .pergunta {
   padding: 0% 1% 1% 1%;
 
   width: 78%;
@@ -190,7 +199,7 @@ section .bloco .bloco-lista .lista .pergunta {
 
 }
 
-section .bloco .bloco-lista .lista .pergunta .titulo {
+section .bloco .bloco-lista-anotacao .bloco-lista .lista .pergunta .titulo {
   text-decoration: none;
 
   width: 100%;
@@ -214,7 +223,7 @@ section .bloco .bloco-lista .lista .pergunta .criacao {
 
 }
 
-section .bloco .bloco-lista .lista .pergunta .criacao .categoria {
+section .bloco .bloco-lista-anotacao .bloco-lista .lista .pergunta .criacao .categoria {
   padding: 0.5% 1%;
 
   background-color: var(--background-color-blue-categoria);
@@ -231,14 +240,14 @@ section .bloco .bloco-lista .lista .pergunta .criacao .categoria {
 
 }
 
-section .bloco .bloco-lista .lista .pergunta .criacao .usuario {
+section .bloco .bloco-lista-anotacao .bloco-lista .lista .pergunta .criacao .usuario {
   display: flex;
   align-items: center;
   justify-content: flex-end;
 
 }
 
-section .bloco .bloco-lista .lista .pergunta .criacao .usuario .img {
+section .bloco .bloco-lista-anotacao .bloco-lista .lista .pergunta .criacao .usuario .img {
   width: 3%;
   height: auto;
 
@@ -248,33 +257,141 @@ section .bloco .bloco-lista .lista .pergunta .criacao .usuario .img {
 
 }
 
-section .bloco .bloco-lista .lista .pergunta .criacao .usuario .img img {
+section .bloco .bloco-lista-anotacao .bloco-lista .lista .pergunta .criacao .usuario .img img {
+  width: 100%;
+  height: auto;
+
+  border-radius: 5px;
+
+}
+
+section .bloco .bloco-lista-anotacao .bloco-lista .lista .pergunta .criacao .usuario .nome-perfil {
+  text-decoration: none;
+
+  margin: 0% 1%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--text-color-blue);
+
+  font-size: 12px;
+
+}
+
+section .bloco .bloco-lista-anotacao .bloco-lista .lista .pergunta .criacao .usuario .qtd-postagens {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+  font-weight: bold;
+
+  color: var(--text-color-gray-menu);
+
+}
+
+section .bloco .bloco-lista-anotacao .bloco-lista .lista .pergunta .criacao .usuario .qtd-postagens strong {
+  padding: 0% 0% 0% 10%;
+
+  color: var(--text-color-gray-post);
+
+  font-weight: normal;
+
+}
+
+section .bloco .bloco-lista-anotacao .bloco-lista .lista .pergunta .criacao .usuario .data {
+  margin: 0% 1%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+
+  color: var(--text-color-gray-post);
+
+}
+
+section .bloco .bloco-lista-anotacao .anotacoes {
+  margin-top: 1.4%;
+  margin-left: 2%;
+
+  width: 50%;
+  height: auto;
+
+  background-color: var(--background-color-anotacao-section);
+
+  border: 1px solid var(--border-color-anotacao);
+  border-radius: 5px;
+
+}
+
+section .bloco .bloco-lista-anotacao .anotacoes header {
+  padding: 12px 15px;
+
+  width: auto;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  font-size: 12px;
+  font-weight: bold;
+
+  color: var(--text-color-gray-menu);
+
+  background-color: var(--background-color-anotacao-header);
+
+  border-bottom: 1px solid var(--border-color-anotacao);
+  border-radius: 5px 5px 0px 0px;
+
+}
+
+section .bloco .bloco-lista-anotacao .anotacoes section {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
+  width: auto;
+  height: auto;
+
+}
+
+section .bloco .bloco-lista-anotacao .anotacoes section .bloco-anotacao {
+  padding: 2% 5% 0% 5%;
+
+  width: 90%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  color: var(--text-color-gray-menu);
+
+}
+
+section .bloco .bloco-lista-anotacao .anotacoes section .bloco-anotacao .img {
+  margin-right: 2%;
+
+  width: 15px;
+  height: auto;
+
+}
+
+section .bloco .bloco-lista-anotacao .anotacoes section .bloco-anotacao .img svg {
   width: 100%;
   height: auto;
 
 }
 
-section .bloco .bloco-lista .lista .pergunta .criacao .usuario .nome-perfil {
-  margin: 0% 1%;
+section .bloco .bloco-lista-anotacao .anotacoes section .bloco-anotacao p {
+  font-size: 13px;
 
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-}
-
-section .bloco .bloco-lista .lista .pergunta .criacao .usuario .qtd-postagens {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-
-}
-
-section .bloco .bloco-lista .lista .pergunta .criacao .usuario .data {
-  margin: 0% 1%;
-
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  color: var(--text-color-black-text-title-post);
 
 }

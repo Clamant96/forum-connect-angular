@@ -2,45 +2,61 @@
 
   <div class="bloco">
     <div class="bloco-menu">
-      <div class="botao-menu">Home</div>
+      <div class="botao-menu" id="home">Home</div>
       <div class="fixo">PUBLICO</div>
       <div class="botao-menu">Perguntas</div>
       <div class="botao-menu">Categorias</div>
       <div class="botao-menu">Usuarios</div>
     </div>
 
-    <div class="bloco-lista">
-      <div class="header">
-        <div class="perguntas">
-          <h1>Ultimas perguntas</h1>
-          <div class="botao">
-            Faça uma pergunta
+    <div class="bloco-lista-anotacao">
+      <div class="bloco-lista">
+        <div class="header">
+          <div class="perguntas">
+            <h1>Ultimas perguntas</h1>
+            <div class="botao">
+              Faça uma pergunta
+            </div>
+          </div>
+        </div>
+
+        <div class="lista" *ngFor="let postagem of this.listaPostagens">
+          <div class="status">
+              <p class="valor"><strong>{{postagem.gostei}} votos</strong></p>
+              <p class="valor">{{this.calculaInteracoes(postagem)}} interações</p>
+              <p class="valor">{{postagem.visualizacao}} views</p>
+          </div>
+          <div class="pergunta">
+            <a routerLink="" class="titulo">{{postagem.titulo}}</a>
+            <div class="criacao">
+              <div class="categoria">
+                {{postagem.categoria.nome}}
+              </div>
+              <div class="usuario">
+                <div class="img">
+                  <img [src]="postagem.usuario.img" [alt]="postagem.usuario.nome" />
+                </div>
+                <a routerLink="" class="nome-perfil">{{postagem.usuario.nome}}</a>
+                <div class="qtd-postagens">{{this.calculaQtdPostagensUsuario(postagem.usuario)}} <strong>{{this.renderizaPlural(postagem.usuario)}}</strong></div>
+                <div class="data">{{this.calculaTempoPostagem(postagem.data)}}</div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="lista" *ngFor="let postagem of this.listaPostagens">
-        <div class="status">
-            <p class="valor"><strong>{{postagem.gostei}} votos</strong></p>
-            <p class="valor">{{this.calculaInteracoes(postagem)}} interações</p>
-            <p class="valor">{{postagem.visualizacao}} views</p>
-        </div>
-        <div class="pergunta">
-          <a routerLink="" class="titulo">{{postagem.titulo}}</a>
-          <div class="criacao">
-            <div class="categoria">
-              {{postagem.categoria.nome}}
+      <div class="anotacoes">
+        <header>Ultimas atualizações</header>
+        <section *ngFor="let anotacao of this.renderizaAnotacoes()">
+          <div class="bloco-anotacao">
+            <div class="img">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right" viewBox="0 0 16 16">
+                <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>
+              </svg>
             </div>
-            <div class="usuario">
-              <div class="img">
-                <img [src]="postagem.usuario.img" [alt]="postagem.usuario.nome" />
-              </div>
-              <p class="nome-perfil">{{postagem.usuario.nome}}</p>
-              <div class="qtd-postagens">{{this.calculaQtdPostagensUsuario(postagem.usuario)}} {{this.renderizaPlural(postagem.usuario)}}</div>
-              <div class="data">{{this.calculaTempoPostagem(postagem.data)}}</div>
-            </div>
+            <p>{{anotacao.descricao}}</p>
           </div>
-        </div>
+        </section>
       </div>
     </div>
   </div>
