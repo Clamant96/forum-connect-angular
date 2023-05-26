@@ -1,0 +1,62 @@
+<div class="bloco-postagem">
+
+  <div class="bloco-lista">
+    <div class="header">
+      <div class="perguntas">
+        <h1>{{postagem.titulo}}</h1>
+        <div class="botao">
+          Faça uma pergunta
+        </div>
+      </div>
+    </div>
+
+    <div class="conteudo">
+
+      <div class="bloco-mensagem">
+        <div class="gostei">
+          <div class="img">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+              <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+            </svg>
+          </div>
+          <div class="numero">
+            {{postagem.gostei}}
+          </div>
+          <div class="img">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+              <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+            </svg>
+          </div>
+        </div>
+
+        <div class="mensagem">
+          {{postagem.conteudo}}
+        </div>
+      </div>
+
+      <div class="bloco-usuario">
+        <div class="categoria">
+          {{this.renderizaCategoria(postagem.categoria)}}
+        </div>
+
+        <div class="gerencia">
+          <a routerLink="">Editar</a>
+
+          <div class="usuario">
+            <div class="data">post {{this.calculaTempoPostagem(postagem.data)}}</div>
+            <div class="conteudo-usuario">
+              <div class="img">
+                <img [src]="this.renderizaUsuarioImg(postagem.usuario)" [alt]="this.renderizaUsuarioNome(postagem.usuario)" />
+              </div>
+              <div class="dados">
+                <a routerLink="" class="nome-perfil">{{this.renderizaUsuarioNome(postagem.usuario)}}</a>
+              <div class="qtd-postagens">{{this.calculaQtdPostagensUsuario(postagem.usuario)}}</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -387,6 +387,8 @@ section .bloco .bloco-lista-anotacao .anotacoes section .bloco-anotacao .img svg
   width: 100%;
   height: auto;
 
+  color: var(--background-color-blue-hover);
+
 }
 
 section .bloco .bloco-lista-anotacao .anotacoes section .bloco-anotacao p {

@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { HomeComponent } from './home/home.component';
+import { PostagemComponent } from './postagem/postagem.component';
 
 const routes: Routes = [
   /* ACESSO VAZIO */
@@ -15,6 +16,9 @@ const routes: Routes = [
     path: 'home',
     component: HomeComponent
   },
+  {
+    path: 'postagem/:id', component: PostagemComponent
+  }
 ];
 
 @NgModule({

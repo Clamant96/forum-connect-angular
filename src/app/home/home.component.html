@@ -27,7 +27,7 @@
               <p class="valor">{{postagem.visualizacao}} views</p>
           </div>
           <div class="pergunta">
-            <a routerLink="" class="titulo">{{postagem.titulo}}</a>
+            <a [routerLink]="['/postagem', postagem.id]" class="titulo">{{postagem.titulo}}</a>
             <div class="criacao">
               <div class="categoria">
                 {{postagem.categoria.nome}}
