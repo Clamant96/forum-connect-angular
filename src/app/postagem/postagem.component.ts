@@ -1,3 +1,4 @@
+import { ComentarioService } from './../service/comentario.service';
 import { PostagemService } from './../service/postagem.service';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
@@ -5,6 +6,8 @@ import { Postagem } from '../model/Postagem';
 import { Usuario } from '../model/Usuario';
 import { Categoria } from '../model/Categoria';
 import { environment } from 'src/environments/environment.prod';
+import { UsuarioService } from '../service/usuario.service';
+import { Comentario } from '../model/Comentario';
 
 @Component({
   selector: 'app-postagem',
@@ -14,16 +17,24 @@ import { environment } from 'src/environments/environment.prod';
 export class PostagemComponent implements OnInit {
 
   public id: number = 0;
+  public idUserLogado: number = environment.id;
   public nome: string = environment.nome;
 
   public postagem: Postagem = new Postagem();
-  public editarPostagem: Postagem = new Postagem();
+  public usuario: Usuario = new Usuario();
+  public comentario: Comentario = new Comentario();
 
   public isEditarPostagem: boolean = false;
+  public isAdicionarComentarioPostagem: boolean = false;
+
+  public memoriaConteudo: string;
+  public memoriaConteudoComentario: string;
 
   constructor(
     private route: ActivatedRoute,
-    private postagemService: PostagemService
+    private postagemService: PostagemService,
+    private usuarioService: UsuarioService,
+    private comentarioService: ComentarioService
 
   ) { }
 
@@ -41,6 +52,12 @@ export class PostagemComponent implements OnInit {
   getByIdPostagem(id: number) {
     this.postagemService.findByIdPostagem(id).subscribe((resp: Postagem) => {
       this.postagem = resp;
+
+      // CARREGA A QTD DE POSTAGENS DO USUARIO
+      this.usuarioService.findByIdUsuario(resp.usuario.id).subscribe((respUser: Usuario) => {
+        this.postagem.usuario = respUser;
+
+      });
 
     });
 
@@ -69,6 +86,42 @@ export class PostagemComponent implements OnInit {
   }
 
   atualizarConteudoPostagem() {
+    this.postagem.conteudo = this.memoriaConteudo;
+
+    this.postagemService.putConteudoPostagem(this.postagem).subscribe((resp: boolean) => {
+      this.isEditarPostagem = false; //FECHA A ABA DE EDICAO DE POSTAGEM
+
+    }, err => {
+      console.log("Ocorreu um erro ao tentar atualizar a postagem.");
+
+    });
+
+  }
+
+  publicarComentario(postagem: Postagem) {
+    this.comentario = new Comentario();
+
+    let usuarioLogado: Usuario = new Usuario();
+    usuarioLogado.id = this.idUserLogado;
+
+    this.comentario.postagem = postagem;
+    this.comentario.usuario = usuarioLogado;
+    this.comentario.conteudo = this.memoriaConteudoComentario;
+
+    console.log("this.comentario");
+    console.log(this.comentario);
+
+    this.comentarioService.postComentario(this.comentario).subscribe((resp: Comentario) => {
+      this.getByIdPostagem(postagem.id);
+
+      this.isAdicionarComentarioPostagem = false; // FECHA O CAMPO DE POSTAGEM DE COMENTARIO
+
+    }, err => {
+      console.log("Ocorreu um erro ao tentar postar o comentario.");
+
+      this.isAdicionarComentarioPostagem = false; // FECHA O CAMPO DE POSTAGEM DE COMENTARIO
+
+    });
 
   }
 
@@ -186,9 +239,35 @@ export class PostagemComponent implements OnInit {
     this.isEditarPostagem = !this.isEditarPostagem;
 
     if(this.isEditarPostagem) {
-      this.editarPostagem = this.postagem;
+      this.memoriaConteudo = this.postagem.conteudo;
     }else {
-      this.editarPostagem = new Postagem();
+      this.memoriaConteudo = "";
+    }
+
+  }
+
+  renderizaHR(postagem: Postagem) {
+
+    try {
+      if(postagem.comentarios.length > 0) {
+
+        return true;
+      }else {
+
+        return false;
+      }
+
+    }catch{return false;}
+
+  }
+
+  habilitaCampoAdicionarComentarioPostagem() {
+    this.isAdicionarComentarioPostagem = !this.isAdicionarComentarioPostagem;
+
+    if(this.isAdicionarComentarioPostagem) {
+      this.memoriaConteudo = this.postagem.conteudo;
+    }else {
+      this.memoriaConteudo = "";
     }
 
   }

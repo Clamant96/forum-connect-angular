@@ -26,6 +26,11 @@ export class UsuarioService {
     return this.http.get<Usuario>(`${this.serverPort}/usuario/${id}`);
   }
 
+  findByQtdPostagensIdUsuario(id: number): Observable<number> {
+
+    return this.http.get<number>(`${this.serverPort}/usuario/qtd-postagens/${id}`);
+  }
+
   postUsuario(usuario: Usuario): Observable<Usuario> {
 
     return this.http.post<Usuario>(`${this.serverPort}/usuario`, usuario);

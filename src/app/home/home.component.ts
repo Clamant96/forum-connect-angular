@@ -1,5 +1,6 @@
 import { Postagem } from '../model/Postagem';
 import { Usuario } from '../model/Usuario';
+import { UsuarioService } from '../service/usuario.service';
 import { PostagemService } from './../service/postagem.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -13,7 +14,8 @@ export class HomeComponent implements OnInit {
   public listaPostagens: Postagem[] = [];
 
   constructor(
-    private postagemService: PostagemService
+    private postagemService: PostagemService,
+    private usuarioService: UsuarioService
 
   ) { }
 
@@ -28,6 +30,15 @@ export class HomeComponent implements OnInit {
   getAllPostagens() {
     this.postagemService.findAllPostagens().subscribe((resp: Postagem[]) => {
       this.listaPostagens = resp;
+
+      this.listaPostagens.map((postagem) => {
+        // CARREGA A QTD DE POSTAGENS DO USUARIO
+        this.usuarioService.findByIdUsuario(postagem.usuario.id).subscribe((respUser: Usuario) => {
+          postagem.usuario = respUser;
+
+        });
+
+      });
 
     });
 

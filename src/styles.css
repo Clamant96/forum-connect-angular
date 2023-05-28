@@ -22,6 +22,8 @@ html, body {
   --border-gray: #d6d9dc;
   --border-gray-textarea: #abaeb0;
   --border-color-anotacao: #f0e0a4;
+  --border-hr: #dee2e5;
+  --border-comentario: #e9edf0;
 
   --button-border-right-hover-color: #F48225;
   --background-color-button-hover: #F1F2F3;
@@ -47,5 +49,7 @@ html, body {
   --text-color-black-text-title-post: #3b4045;
   --text-color-gray-text-post: #232629;
   --text-color-gray-value: #64747c;
+  --text-color-gray-time: #9199a1;
+  --text-color-gray-add-comentario: #9fa9b3;
 
 }

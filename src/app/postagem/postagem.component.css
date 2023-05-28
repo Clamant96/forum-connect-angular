@@ -387,6 +387,245 @@
 
 }
 
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios {
+  margin-top: 2%;
+
+  width: 93.5%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios hr {
+  width: 100%;
+  height: auto;
+
+  border-top: 1px solid var(--border-hr);
+  border-right: 0px solid var(--border-hr);
+  border-left: 0px solid var(--border-hr);
+  border-bottom: 0px solid var(--border-hr);
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .add-comentario {
+  padding: 1% 0%;
+
+  font-size: 13px;
+
+  color: var(--text-color-gray-add-comentario);
+
+  cursor: pointer;
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .adicionar-comentario-postagem {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .adicionar-comentario-postagem .comentario {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .adicionar-comentario-postagem .comentario textarea {
+  width: 100%;
+  min-height: 20vh;
+
+  padding: 10px;
+  margin: -1px 0 0;
+
+  line-height: 1.3;
+
+  font-size: 1.15384615rem;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  outline: none;
+
+  border-radius: 3px;
+  border: 1px solid var(--border-gray-textarea);
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .adicionar-comentario-postagem .botao {
+  padding: 1% 1.5%;
+  margin-top: 1%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--background-color-blue);
+
+  cursor: pointer;
+
+  border-radius: 5px;
+
+  font-size: 13px;
+
+  color: var(--text-color-white);
+
+  transition: background-color, 0.2s ease-in-out;
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .adicionar-comentario-postagem .botao:hover {
+  background-color: var(--background-color-blue-hover);
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .comentario {
+  padding: 0.5% 0%;
+
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  border-bottom: 1px solid var(--border-comentario);
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .comentario .bloco-mensagem {
+  padding: 0%;
+  margin-right: 2%;
+
+  width: 1%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .comentario .bloco-mensagem .gostei {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .comentario .bloco-mensagem .gostei .img {
+  width: 100%;
+  height: auto;
+
+  padding: 0;
+  margin: 0;
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .comentario .bloco-mensagem .gostei .img svg {
+  width: 100%;
+  height: auto;
+
+  cursor: pointer;
+
+  color: var(--background-color-gostei-gray);
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .comentario .bloco-mensagem .gostei .numero {
+  font-size: 13px;
+
+  margin: 2px;
+
+  color: var(--text-color-gray-post);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .comentario .conteudo-usuario-data {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .comentario .conteudo-usuario-data .conteudo-comentario {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  font-size: 13px;
+  font-weight: normal;
+
+  color: var(--text-color-gray-text-post);
+
+  margin-right: 0.5%;
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .comentario .conteudo-usuario-data .divisao {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  font-size: 13px;
+  font-weight: normal;
+
+  color: var(--text-color-gray-text-post);
+
+  margin-right: 0.5%;
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .comentario .conteudo-usuario-data .usuario {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  font-size: 13px;
+  font-weight: normal;
+
+  color: var(--text-color-blue);
+
+  margin-right: 0.5%;
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .comentario .conteudo-usuario-data .data {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  font-size: 13px;
+  font-weight: normal;
+
+  color: var(--text-color-gray-time);
+
+}
+
 .bloco-postagem .bloco-lista .conteudo .anotacoes {
   margin-top: 1.4%;
   margin-left: 2%;

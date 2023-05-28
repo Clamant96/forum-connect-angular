@@ -46,6 +46,11 @@ export class PostagemService {
     return this.http.put<Postagem>(`${this.serverPort}/postagem`, postagem);
   }
 
+  putConteudoPostagem(postagem: Postagem): Observable<boolean> {
+
+    return this.http.put<boolean>(`${this.serverPort}/postagem/atualiza/conteudo`, postagem);
+  }
+
   deletePostagem(id: number){
 
     return this.http.delete(`${this.serverPort}/postagem/${id}`);

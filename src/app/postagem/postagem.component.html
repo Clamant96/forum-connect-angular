@@ -60,13 +60,56 @@
 
         <div *ngIf="this.isEditarPostagem" class="editar-postagem">
           <div class="editar-conteudo">
-            <textarea type="text" [(ngModel)]='this.editarPostagem.conteudo'></textarea>
+            <textarea type="text" [(ngModel)]='this.memoriaConteudo'></textarea>
           </div>
           <div class="preview-conteudo">
-            {{this.editarPostagem.conteudo}}
+            {{this.memoriaConteudo}}
           </div>
-          <div class="botao">
+          <div class="botao" (click)="this.atualizarConteudoPostagem()">
             Atualizar
+          </div>
+        </div>
+
+        <div class="bloco-comentarios">
+          <hr *ngIf="this.renderizaHR(postagem)" />
+
+          <div class="comentario" *ngFor="let comentario of postagem.comentarios">
+            <div class="bloco-mensagem">
+              <div class="gostei">
+                <div class="img" (click)="this.registraAvaliacaoPostagem(postagem.id, 'ok')">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                    <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+                  </svg>
+                </div>
+                <div class="numero">
+                  {{comentario.gostei}}
+                </div>
+                <div class="img" (click)="this.registraAvaliacaoPostagem(postagem.id, 'nok')">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                    <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+                  </svg>
+                </div>
+              </div>
+            </div>
+            <div class="conteudo-usuario-data">
+              <div class="conteudo-comentario">{{comentario.conteudo}}</div>
+              <div class="divisao"> – </div>
+              <div class="usuario">{{comentario.usuario.nome}}</div>
+              <div class="data">{{this.calculaTempoPostagem(comentario.data)}}</div>
+            </div>
+          </div>
+
+          <div class="add-comentario" (click)="this.habilitaCampoAdicionarComentarioPostagem()">
+            Adicionar comentário
+          </div>
+
+          <div *ngIf="this.isAdicionarComentarioPostagem" class="adicionar-comentario-postagem">
+            <div class="comentario">
+              <textarea type="text" [(ngModel)]='this.memoriaConteudoComentario'></textarea>
+            </div>
+            <div class="botao" (click)="this.publicarComentario(postagem)">
+              Comentar
+            </div>
           </div>
         </div>
       </div>

@@ -8,5 +8,5 @@ export class Comentario {
   public gostei: number;
   public postagem: Postagem;
   public usuario: Usuario;
-
+  public data: Date;
 }
