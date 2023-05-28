@@ -1,10 +1,17 @@
 .bloco-postagem {
   width: 100%;
-  height: auto;
+  height: 100vh;
 
   display: flex;
   align-items: flex-start;
   justify-content: center;
+
+  overflow-y: scroll;
+
+}
+
+.bloco-postagem::-webkit-scrollbar {
+  display: none;
 
 }
 
@@ -22,8 +29,9 @@
 
 .bloco-postagem .bloco-lista .header .perguntas {
   margin-top: 2vh;
+  margin-left: 2.5%;
 
-  width: 95%;
+  width: 100%;
   height: 18vh;
 
   display: flex;
@@ -74,7 +82,7 @@
 }
 
 .bloco-postagem .bloco-lista .conteudo .dados-msg {
-  width: 100%;
+  width: 85%;
   height: auto;
 
   display: flex;
@@ -510,7 +518,7 @@
   padding: 0%;
   margin-right: 2%;
 
-  width: 1%;
+  width: 1.5%;
   height: auto;
 
   display: flex;
@@ -629,7 +637,6 @@
 .bloco-postagem .bloco-lista .conteudo .anotacoes {
   margin-top: 1.4%;
   margin-left: 2%;
-  margin-right: 2%;
 
   width: 27%;
   height: auto;

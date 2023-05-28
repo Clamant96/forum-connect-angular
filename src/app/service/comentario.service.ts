@@ -26,6 +26,11 @@ export class ComentarioService {
     return this.http.get<Comentario>(`${this.serverPort}/comentario/${id}`);
   }
 
+  registraAvaliacao(id: number, status: string): Observable<number> {
+
+    return this.http.get<number>(`${this.serverPort}/comentario/gostei/${id}/${status}`);
+  }
+
   postComentario(comentario: Comentario): Observable<Comentario> {
 
     return this.http.post<Comentario>(`${this.serverPort}/comentario`, comentario);

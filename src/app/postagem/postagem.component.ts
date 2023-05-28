@@ -1,6 +1,6 @@
 import { ComentarioService } from './../service/comentario.service';
 import { PostagemService } from './../service/postagem.service';
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Postagem } from '../model/Postagem';
 import { Usuario } from '../model/Usuario';
@@ -16,7 +16,10 @@ import { Comentario } from '../model/Comentario';
 })
 export class PostagemComponent implements OnInit {
 
+  @Input()
   public id: number = 0;
+
+  // public id: number = 0;
   public idUserLogado: number = environment.id;
   public nome: string = environment.nome;
 
@@ -42,10 +45,10 @@ export class PostagemComponent implements OnInit {
     window.scroll(0, 0);
 
     /* RECEBE O NOVO ID DE ACORDO COM A OPCAO ESCOLHIDA PELO USUARIO AO ATUALIZAR O DADO DE TEMA */
-    this.id = this.route.snapshot.params['id'];
+    // this.id = this.route.snapshot.params['id'];
 
     this.getByIdPostagem(this.id);
-    // this.registraVisualizacaoPostagem(this.id);
+    /*this.registraVisualizacaoPostagem(this.id);*/
 
   }
 
@@ -77,6 +80,24 @@ export class PostagemComponent implements OnInit {
   registraAvaliacaoPostagem(id: number, status: string) {
     this.postagemService.registraAvaliacao(id, status).subscribe((resp: number) => {
       this.postagem.gostei = resp;
+
+    }, err => {
+      console.log("Ocorreu um erro ao salar o gostei.");
+
+    });
+
+  }
+
+  registraAvaliacaoComentario(id: number, status: string) {
+    this.comentarioService.registraAvaliacao(id, status).subscribe((resp: number) => {
+
+      this.postagem.comentarios.map((item) => {
+
+        if(item.id == id) {
+          item.gostei = resp;
+        }
+
+      });
 
     }, err => {
       console.log("Ocorreu um erro ao salar o gostei.");
@@ -236,7 +257,9 @@ export class PostagemComponent implements OnInit {
   }
 
   habilitaCampoEdicaoPostagem() {
-    this.isEditarPostagem = !this.isEditarPostagem;
+    if(this.postagem.id == this.idUserLogado) {
+      this.isEditarPostagem = !this.isEditarPostagem;
+    }
 
     if(this.isEditarPostagem) {
       this.memoriaConteudo = this.postagem.conteudo;

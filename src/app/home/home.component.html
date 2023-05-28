@@ -2,15 +2,16 @@
 
   <div class="bloco">
     <div class="bloco-menu">
-      <div class="botao-menu" id="home">Home</div>
+      <div class="botao-menu" id="home" (click)="this.removeSelecaoDePostagem()">Home</div>
       <div class="fixo">PUBLICO</div>
-      <div class="botao-menu">Perguntas</div>
+      <div class="botao-menu" id="pergunta">Perguntas</div>
       <div class="botao-menu">Categorias</div>
       <div class="botao-menu">Usuarios</div>
     </div>
 
     <div class="bloco-lista-anotacao">
-      <div class="bloco-lista">
+      <app-postagem *ngIf="this.idPostagemSelecionada > 0" [id]="this.idPostagemSelecionada"></app-postagem>
+      <div *ngIf="this.idPostagemSelecionada == 0" class="bloco-lista">
         <div class="header">
           <div class="perguntas">
             <h1>Ultimas perguntas</h1>
@@ -27,7 +28,8 @@
               <p class="valor">{{postagem.visualizacao}} views</p>
           </div>
           <div class="pergunta">
-            <a [routerLink]="['/postagem', postagem.id]" class="titulo">{{postagem.titulo}}</a>
+            <!-- <a [routerLink]="['/postagem', postagem.id]" class="titulo">{{postagem.titulo}}</a> -->
+            <a (click)="this.capturaIdDePostagemSelecionado(postagem.id)" class="titulo">{{postagem.titulo}}</a>
             <div class="criacao">
               <div class="categoria">
                 {{postagem.categoria.nome}}
@@ -45,7 +47,7 @@
         </div>
       </div>
 
-      <div class="anotacoes">
+      <div *ngIf="this.idPostagemSelecionada == 0" class="anotacoes">
         <header>Ultimas atualizações</header>
         <section *ngFor="let anotacao of this.renderizaAnotacoes()">
           <div class="bloco-anotacao">

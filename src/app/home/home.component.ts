@@ -13,6 +13,8 @@ export class HomeComponent implements OnInit {
 
   public listaPostagens: Postagem[] = [];
 
+  public idPostagemSelecionada: number = 0;
+
   constructor(
     private postagemService: PostagemService,
     private usuarioService: UsuarioService
@@ -136,8 +138,13 @@ export class HomeComponent implements OnInit {
 
   renderizaBotaoMenu() {
 
-    if(window.document.URL.includes("home")) {
+    if(window.document.URL.includes("home") && this.idPostagemSelecionada == 0) {
       window.document.querySelector('section .bloco .bloco-menu #home')?.setAttribute('style', 'background-color: var(--background-color-button-hover); color: var(--text-color-black-menu-hover); font-weight: bold; border-right: 3px solid var(--button-border-right-hover-color); margin-left: 0%; width: 90%;');
+      window.document.querySelector('section .bloco .bloco-menu #pergunta')?.setAttribute('style', '');
+
+    }else if(this.idPostagemSelecionada > 0) {
+      window.document.querySelector('section .bloco .bloco-menu #pergunta')?.setAttribute('style', 'background-color: var(--background-color-button-hover); color: var(--text-color-black-menu-hover); font-weight: bold; border-right: 3px solid var(--button-border-right-hover-color); margin-left: 0%; width: 90%;');
+      window.document.querySelector('section .bloco .bloco-menu #home')?.setAttribute('style', ''); // REMOVE A CONFIGURACAO DE HOME
 
     }
 
@@ -154,6 +161,20 @@ export class HomeComponent implements OnInit {
     ];
 
     return anotacoes;
+  }
+
+  capturaIdDePostagemSelecionado(id: number) {
+    this.idPostagemSelecionada = id;
+
+    this.renderizaBotaoMenu(); // ATUALIZA MENU
+
+  }
+
+  removeSelecaoDePostagem() {
+    this.idPostagemSelecionada = 0;
+
+    this.renderizaBotaoMenu(); // ATUALIZA MENU
+
   }
 
 }
