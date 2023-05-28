@@ -500,6 +500,87 @@
 
 }
 
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .adicionar-resposta-postagem {
+  margin-bottom: 2%;
+
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .adicionar-resposta-postagem p {
+  font-size: 19px;
+
+  color: var(--text-color-gray-text-post);
+
+  padding: 5% 0% 2% 0%;
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .adicionar-resposta-postagem .resposta {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .adicionar-resposta-postagem .resposta textarea {
+  width: 100%;
+  min-height: 20vh;
+
+  padding: 10px;
+  margin: -1px 0 0;
+
+  line-height: 1.3;
+
+  font-size: 1.15384615rem;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  outline: none;
+
+  border-radius: 3px;
+  border: 1px solid var(--border-gray-textarea);
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .adicionar-resposta-postagem .botao {
+  padding: 1% 1.5%;
+  margin-top: 1%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--background-color-blue);
+
+  cursor: pointer;
+
+  border-radius: 5px;
+
+  font-size: 13px;
+
+  color: var(--text-color-white);
+
+  transition: background-color, 0.2s ease-in-out;
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .adicionar-resposta-postagem .botao:hover {
+  background-color: var(--background-color-blue-hover);
+
+}
+
 .bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .comentario {
   padding: 0.5% 0%;
 

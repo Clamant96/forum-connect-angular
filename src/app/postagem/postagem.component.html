@@ -111,6 +111,18 @@
               Comentar
             </div>
           </div>
+
+          <!-- CAMPO RESERVADO PARA ADICIONAR A RESPOSTA -->
+
+          <div class="adicionar-resposta-postagem">
+            <p>Você consegue responder essa pergunta ?</p>
+            <div class="resposta">
+              <textarea type="text" [(ngModel)]='this.memoriaConteudoResposta'></textarea>
+            </div>
+            <div class="botao" (click)="this.publicarResposta(postagem)">
+              Postar resposta
+            </div>
+          </div>
         </div>
       </div>
 

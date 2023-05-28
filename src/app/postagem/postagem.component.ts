@@ -1,3 +1,4 @@
+import { RespostaService } from './../service/resposta.service';
 import { ComentarioService } from './../service/comentario.service';
 import { PostagemService } from './../service/postagem.service';
 import { Component, Input, OnInit } from '@angular/core';
@@ -8,6 +9,7 @@ import { Categoria } from '../model/Categoria';
 import { environment } from 'src/environments/environment.prod';
 import { UsuarioService } from '../service/usuario.service';
 import { Comentario } from '../model/Comentario';
+import { Resposta } from '../model/Resposta';
 
 @Component({
   selector: 'app-postagem',
@@ -26,18 +28,21 @@ export class PostagemComponent implements OnInit {
   public postagem: Postagem = new Postagem();
   public usuario: Usuario = new Usuario();
   public comentario: Comentario = new Comentario();
+  public resposta: Resposta = new Resposta();
 
   public isEditarPostagem: boolean = false;
   public isAdicionarComentarioPostagem: boolean = false;
 
   public memoriaConteudo: string;
   public memoriaConteudoComentario: string;
+  public memoriaConteudoResposta: string;
 
   constructor(
     private route: ActivatedRoute,
     private postagemService: PostagemService,
     private usuarioService: UsuarioService,
-    private comentarioService: ComentarioService
+    private comentarioService: ComentarioService,
+    private respostaService: RespostaService
 
   ) { }
 
@@ -141,6 +146,26 @@ export class PostagemComponent implements OnInit {
       console.log("Ocorreu um erro ao tentar postar o comentario.");
 
       this.isAdicionarComentarioPostagem = false; // FECHA O CAMPO DE POSTAGEM DE COMENTARIO
+
+    });
+
+  }
+
+  publicarResposta(postagem: Postagem) {
+    this.resposta = new Resposta();
+
+    let usuarioLogado: Usuario = new Usuario();
+    usuarioLogado.id = this.idUserLogado;
+
+    this.resposta.postagem = postagem;
+    this.resposta.usuario = usuarioLogado;
+    this.resposta.conteudo = this.memoriaConteudoResposta;
+
+    this.respostaService.postResposta(this.resposta).subscribe((resp: Resposta) => {
+      this.getByIdPostagem(postagem.id);
+
+    }, err => {
+      console.log("Ocorreu um erro ao tentar postar a resposta.");
 
     });
 
