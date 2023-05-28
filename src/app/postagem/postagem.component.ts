@@ -4,6 +4,7 @@ import { ActivatedRoute } from '@angular/router';
 import { Postagem } from '../model/Postagem';
 import { Usuario } from '../model/Usuario';
 import { Categoria } from '../model/Categoria';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-postagem',
@@ -13,8 +14,12 @@ import { Categoria } from '../model/Categoria';
 export class PostagemComponent implements OnInit {
 
   public id: number = 0;
+  public nome: string = environment.nome;
 
   public postagem: Postagem = new Postagem();
+  public editarPostagem: Postagem = new Postagem();
+
+  public isEditarPostagem: boolean = false;
 
   constructor(
     private route: ActivatedRoute,
@@ -49,6 +54,21 @@ export class PostagemComponent implements OnInit {
       console.log("Ocorreu um erro ao salar a visualizacao.");
 
     });
+
+  }
+
+  registraAvaliacaoPostagem(id: number, status: string) {
+    this.postagemService.registraAvaliacao(id, status).subscribe((resp: number) => {
+      this.postagem.gostei = resp;
+
+    }, err => {
+      console.log("Ocorreu um erro ao salar o gostei.");
+
+    });
+
+  }
+
+  atualizarConteudoPostagem() {
 
   }
 
@@ -149,9 +169,28 @@ export class PostagemComponent implements OnInit {
     }catch{return;}
   }
 
-  //// TESTE
+  renderizaAnotacoes(){
+    const anotacoes = [
+      {
+        descricao: "Criação de listagens de postagens"
+      },
+      {
+        descricao: "Criação de menus"
+      }
+    ];
 
+    return anotacoes;
+  }
 
+  habilitaCampoEdicaoPostagem() {
+    this.isEditarPostagem = !this.isEditarPostagem;
 
-  //////////
+    if(this.isEditarPostagem) {
+      this.editarPostagem = this.postagem;
+    }else {
+      this.editarPostagem = new Postagem();
+    }
+
+  }
+
 }

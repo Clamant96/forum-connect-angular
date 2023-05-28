@@ -12,50 +12,79 @@
 
     <div class="conteudo">
 
-      <div class="bloco-mensagem">
-        <div class="gostei">
-          <div class="img">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
-              <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
-            </svg>
+      <div class="dados-msg">
+        <div class="bloco-mensagem">
+          <div class="gostei">
+            <div class="img" (click)="this.registraAvaliacaoPostagem(postagem.id, 'ok')">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-up-fill" viewBox="0 0 16 16">
+                <path d="m7.247 4.86-4.796 5.481c-.566.647-.106 1.659.753 1.659h9.592a1 1 0 0 0 .753-1.659l-4.796-5.48a1 1 0 0 0-1.506 0z"/>
+              </svg>
+            </div>
+            <div class="numero">
+              {{postagem.gostei}}
+            </div>
+            <div class="img" (click)="this.registraAvaliacaoPostagem(postagem.id, 'nok')">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
+                <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
+              </svg>
+            </div>
           </div>
-          <div class="numero">
-            {{postagem.gostei}}
-          </div>
-          <div class="img">
-            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-caret-down-fill" viewBox="0 0 16 16">
-              <path d="M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z"/>
-            </svg>
+
+          <div class="mensagem">
+            {{postagem.conteudo}}
           </div>
         </div>
 
-        <div class="mensagem">
-          {{postagem.conteudo}}
-        </div>
-      </div>
+        <div class="bloco-usuario">
+          <div class="categoria">
+            {{this.renderizaCategoria(postagem.categoria)}}
+          </div>
 
-      <div class="bloco-usuario">
-        <div class="categoria">
-          {{this.renderizaCategoria(postagem.categoria)}}
-        </div>
+          <div class="gerencia">
+            <div class="botao-editar" (click)="this.habilitaCampoEdicaoPostagem()">Editar</div>
 
-        <div class="gerencia">
-          <a routerLink="">Editar</a>
-
-          <div class="usuario">
-            <div class="data">post {{this.calculaTempoPostagem(postagem.data)}}</div>
-            <div class="conteudo-usuario">
-              <div class="img">
-                <img [src]="this.renderizaUsuarioImg(postagem.usuario)" [alt]="this.renderizaUsuarioNome(postagem.usuario)" />
-              </div>
-              <div class="dados">
-                <a routerLink="" class="nome-perfil">{{this.renderizaUsuarioNome(postagem.usuario)}}</a>
-              <div class="qtd-postagens">{{this.calculaQtdPostagensUsuario(postagem.usuario)}}</div>
+            <div class="usuario">
+              <div class="data">post {{this.calculaTempoPostagem(postagem.data)}}</div>
+              <div class="conteudo-usuario">
+                <div class="img">
+                  <img [src]="this.renderizaUsuarioImg(postagem.usuario)" [alt]="this.renderizaUsuarioNome(postagem.usuario)" />
+                </div>
+                <div class="dados">
+                  <a routerLink="" class="nome-perfil">{{this.renderizaUsuarioNome(postagem.usuario)}}</a>
+                <div class="qtd-postagens">{{this.calculaQtdPostagensUsuario(postagem.usuario)}}</div>
+                </div>
               </div>
             </div>
           </div>
         </div>
+
+        <div *ngIf="this.isEditarPostagem" class="editar-postagem">
+          <div class="editar-conteudo">
+            <textarea type="text" [(ngModel)]='this.editarPostagem.conteudo'></textarea>
+          </div>
+          <div class="preview-conteudo">
+            {{this.editarPostagem.conteudo}}
+          </div>
+          <div class="botao">
+            Atualizar
+          </div>
+        </div>
       </div>
+
+      <div class="anotacoes">
+        <header>Ultimas atualizações</header>
+        <section *ngFor="let anotacao of this.renderizaAnotacoes()">
+          <div class="bloco-anotacao">
+            <div class="img">
+              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-chat-right" viewBox="0 0 16 16">
+                <path d="M2 1a1 1 0 0 0-1 1v8a1 1 0 0 0 1 1h9.586a2 2 0 0 1 1.414.586l2 2V2a1 1 0 0 0-1-1H2zm12-1a2 2 0 0 1 2 2v12.793a.5.5 0 0 1-.854.353l-2.853-2.853a1 1 0 0 0-.707-.293H2a2 2 0 0 1-2-2V2a2 2 0 0 1 2-2h12z"/>
+              </svg>
+            </div>
+            <p>{{anotacao.descricao}}</p>
+          </div>
+        </section>
+      </div>
+
     </div>
   </div>
 

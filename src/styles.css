@@ -20,6 +20,7 @@ html, body {
   --font-noto-sans: 'Noto Sans JP', sans-serif;
 
   --border-gray: #d6d9dc;
+  --border-gray-textarea: #abaeb0;
   --border-color-anotacao: #f0e0a4;
 
   --button-border-right-hover-color: #F48225;
@@ -33,6 +34,7 @@ html, body {
   --background-color-anotacao-header: #FBF3D5;
   --background-color-anotacao-section: #FDF7E2;
   --background-color-gostei-gray: #BABFC4;
+  --background-color-code-gray: #f6f6f6;
 
   --color-icons: #F48225;
 

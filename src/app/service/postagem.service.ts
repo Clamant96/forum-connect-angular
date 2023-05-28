@@ -31,6 +31,11 @@ export class PostagemService {
     return this.http.get<boolean>(`${this.serverPort}/postagem/visualizacao/${id}`);
   }
 
+  registraAvaliacao(id: number, status: string): Observable<number> {
+
+    return this.http.get<number>(`${this.serverPort}/postagem/gostei/${id}/${status}`);
+  }
+
   postPostagem(postagem: Postagem): Observable<Postagem> {
 
     return this.http.post<Postagem>(`${this.serverPort}/postagem`, postagem);

@@ -324,7 +324,7 @@ section .bloco .bloco-lista-anotacao .anotacoes {
   background-color: var(--background-color-anotacao-section);
 
   border: 1px solid var(--border-color-anotacao);
-  border-radius: 5px;
+  border-radius: 3px;
 
 }
 
@@ -346,7 +346,7 @@ section .bloco .bloco-lista-anotacao .anotacoes header {
   background-color: var(--background-color-anotacao-header);
 
   border-bottom: 1px solid var(--border-color-anotacao);
-  border-radius: 5px 5px 0px 0px;
+  border-radius: 3px 3px 0px 0px;
 
 }
 
