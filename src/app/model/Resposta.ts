@@ -9,7 +9,8 @@ export class Resposta {
   public conteudo: string;
   public gostei: number;
   public postagem: Postagem;
-  public comentarios: ComentarioResposta;
+  public comentarios: ComentarioResposta[];
   public usuario: Usuario;
+  public data: Date;
 
 }

@@ -1,0 +1,628 @@
+.conteudo {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+}
+
+.conteudo .dados-msg {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.conteudo .dados-msg .bloco-mensagem {
+  padding: 1.5% 0%;
+
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+}
+
+.conteudo .dados-msg .bloco-mensagem .gostei {
+  padding: 0% 2%;
+
+  width: 2.5%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.conteudo .dados-msg .bloco-mensagem .gostei .img {
+  width: 100%;
+  height: auto;
+
+}
+
+.conteudo .dados-msg .bloco-mensagem .gostei .img svg {
+  width: 100%;
+  height: auto;
+
+  cursor: pointer;
+
+  color: var(--background-color-gostei-gray);
+
+}
+
+.conteudo .dados-msg .bloco-mensagem .gostei .numero {
+  font-size: 21px;
+
+  margin: 2px;
+
+  color: var(--text-color-gray-post);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.conteudo .dados-msg .bloco-mensagem .mensagem {
+  width: 100%;
+  height: auto;
+
+  font-size: 15px;
+
+  color: var(--text-color-gray-text-post);
+
+  /*background-color: var(--background-color-code-gray);*/
+
+}
+
+.conteudo .dados-msg .bloco-usuario {
+  padding: 1.5% 0%;
+
+  width: 93.5%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.conteudo .dados-msg .bloco-usuario .gerencia {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.conteudo .dados-msg .bloco-usuario .gerencia .botao-editar {
+  font-size: 13px;
+
+  color: var(--text-color-gray-post);
+
+  text-decoration: none;
+
+  cursor: pointer;
+
+}
+
+.conteudo .dados-msg .bloco-usuario .gerencia .botao-editar:hover {
+  color: var(--text-color-gray-value);
+
+}
+
+.conteudo .dados-msg .bloco-usuario .gerencia .usuario {
+  width: 25%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
+  background-color: var(--background-color-blue-categoria);
+
+  border-radius: 3px;
+
+}
+
+.conteudo .dados-msg .bloco-usuario .gerencia .usuario .data {
+  padding: 1% 0% 0% 3.5%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+
+  color: var(--text-color-gray-post);
+
+}
+
+.conteudo .dados-msg .bloco-usuario .gerencia .usuario .conteudo-usuario {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+}
+
+.conteudo .dados-msg .bloco-usuario .gerencia .usuario .conteudo-usuario .img {
+  padding: 3.5%;
+
+  width: 18%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.conteudo .dados-msg .bloco-usuario .gerencia .usuario .conteudo-usuario .img img {
+  width: 100%;
+  height: auto;
+
+  border-radius: 5px;
+
+}
+
+.conteudo .dados-msg .bloco-usuario .gerencia .usuario .conteudo-usuario .dados {
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.conteudo .dados-msg .bloco-usuario .gerencia .usuario .conteudo-usuario .dados .nome-perfil {
+  text-decoration: none;
+
+  margin: 0% 1%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: var(--text-color-blue);
+
+  font-size: 12px;
+
+}
+
+.conteudo .dados-msg .bloco-usuario .gerencia .usuario .conteudo-usuario .dados .qtd-postagens {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  font-size: 12px;
+  font-weight: bold;
+
+  color: var(--text-color-gray-menu);
+
+}
+
+.conteudo .dados-msg .bloco-usuario .gerencia .usuario .conteudo-usuario .dados .qtd-postagens strong {
+  padding: 0% 0% 0% 10%;
+
+  color: var(--text-color-gray-post);
+
+  font-weight: normal;
+
+}
+
+.conteudo .dados-msg .editar-postagem {
+  width: 93.5%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.conteudo .dados-msg .editar-postagem .editar-conteudo {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+}
+
+.conteudo .dados-msg .editar-postagem .editar-conteudo textarea {
+  width: 100%;
+  min-height: 30vh;
+
+  padding: 10px;
+  margin: -1px 0 0;
+
+  line-height: 1.3;
+
+  font-size: 1.15384615rem;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  outline: none;
+
+  border-radius: 3px;
+  border: 1px solid var(--border-gray-textarea);
+
+}
+
+.conteudo .dados-msg .editar-postagem .preview-conteudo {
+  margin: 1% 0%;
+
+  width: 100%;
+  height: auto;
+
+  font-size: 15px;
+
+  color: var(--text-color-gray-text-post);
+
+}
+
+.conteudo .dados-msg .editar-postagem .botao {
+  padding: 1% 1.5%;
+  margin-top: 1%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--background-color-blue);
+
+  cursor: pointer;
+
+  border-radius: 5px;
+
+  font-size: 13px;
+
+  color: var(--text-color-white);
+
+  transition: background-color, 0.2s ease-in-out;
+
+}
+
+.conteudo .dados-msg .editar-postagem .botao:hover {
+  background-color: var(--background-color-blue-hover);
+
+}
+
+.conteudo .dados-msg .bloco-comentarios {
+  margin-top: 2%;
+
+  width: 93.5%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.conteudo .dados-msg .bloco-comentarios hr {
+  width: 100%;
+  height: auto;
+
+  border-top: 1px solid var(--border-hr);
+  border-right: 0px solid var(--border-hr);
+  border-left: 0px solid var(--border-hr);
+  border-bottom: 0px solid var(--border-hr);
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .add-comentario {
+  padding: 1% 0%;
+
+  font-size: 13px;
+
+  color: var(--text-color-gray-add-comentario);
+
+  cursor: pointer;
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .adicionar-comentario-postagem {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .adicionar-comentario-postagem .comentario {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .adicionar-comentario-postagem .comentario textarea {
+  width: 100%;
+  min-height: 20vh;
+
+  padding: 10px;
+  margin: -1px 0 0;
+
+  line-height: 1.3;
+
+  font-size: 1.15384615rem;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  outline: none;
+
+  border-radius: 3px;
+  border: 1px solid var(--border-gray-textarea);
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .adicionar-comentario-postagem .botao {
+  padding: 1% 1.5%;
+  margin-top: 1%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--background-color-blue);
+
+  cursor: pointer;
+
+  border-radius: 5px;
+
+  font-size: 13px;
+
+  color: var(--text-color-white);
+
+  transition: background-color, 0.2s ease-in-out;
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .adicionar-comentario-postagem .botao:hover {
+  background-color: var(--background-color-blue-hover);
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .adicionar-resposta-postagem {
+  margin-bottom: 2%;
+
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .adicionar-resposta-postagem p {
+  font-size: 19px;
+
+  color: var(--text-color-gray-text-post);
+
+  padding: 5% 0% 2% 0%;
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .adicionar-resposta-postagem .resposta {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .adicionar-resposta-postagem .resposta textarea {
+  width: 100%;
+  min-height: 20vh;
+
+  padding: 10px;
+  margin: -1px 0 0;
+
+  line-height: 1.3;
+
+  font-size: 1.15384615rem;
+
+  -moz-tab-size: 4;
+  -o-tab-size: 4;
+  tab-size: 4;
+
+  outline: none;
+
+  border-radius: 3px;
+  border: 1px solid var(--border-gray-textarea);
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .adicionar-resposta-postagem .botao {
+  padding: 1% 1.5%;
+  margin-top: 1%;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  background-color: var(--background-color-blue);
+
+  cursor: pointer;
+
+  border-radius: 5px;
+
+  font-size: 13px;
+
+  color: var(--text-color-white);
+
+  transition: background-color, 0.2s ease-in-out;
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .adicionar-resposta-postagem .botao:hover {
+  background-color: var(--background-color-blue-hover);
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .comentario {
+  padding: 0.5% 0%;
+
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+  border-bottom: 1px solid var(--border-comentario);
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .comentario .bloco-mensagem {
+  padding: 0%;
+  margin-right: 2%;
+
+  width: 1.5%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .comentario .bloco-mensagem .gostei {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .comentario .bloco-mensagem .gostei .img {
+  width: 100%;
+  height: auto;
+
+  padding: 0;
+  margin: 0;
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .comentario .bloco-mensagem .gostei .img svg {
+  width: 100%;
+  height: auto;
+
+  cursor: pointer;
+
+  color: var(--background-color-gostei-gray);
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .comentario .bloco-mensagem .gostei .numero {
+  font-size: 13px;
+
+  margin: 2px;
+
+  color: var(--text-color-gray-post);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .comentario .conteudo-usuario-data {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .comentario .conteudo-usuario-data .conteudo-comentario {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  font-size: 13px;
+  font-weight: normal;
+
+  color: var(--text-color-gray-text-post);
+
+  margin-right: 0.5%;
+
+  max-width: 85%;
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .comentario .conteudo-usuario-data .divisao {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  font-size: 13px;
+  font-weight: normal;
+
+  color: var(--text-color-gray-text-post);
+
+  margin-right: 0.5%;
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .comentario .conteudo-usuario-data .usuario {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  font-size: 13px;
+  font-weight: normal;
+
+  color: var(--text-color-blue);
+
+  margin-right: 0.5%;
+
+}
+
+.conteudo .dados-msg .bloco-comentarios .comentario .conteudo-usuario-data .data {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  font-size: 13px;
+  font-weight: normal;
+
+  color: var(--text-color-gray-time);
+
+}

@@ -26,6 +26,11 @@ export class RespostaService {
     return this.http.get<Resposta>(`${this.serverPort}/resposta/${id}`);
   }
 
+  registraAvaliacao(id: number, status: string): Observable<number> {
+
+    return this.http.get<number>(`${this.serverPort}/resposta/gostei/${id}/${status}`);
+  }
+
   postResposta(resposta: Resposta): Observable<Resposta> {
 
     return this.http.post<Resposta>(`${this.serverPort}/resposta`, resposta);
@@ -34,6 +39,11 @@ export class RespostaService {
   putResposta(resposta: Resposta): Observable<Resposta> {
 
     return this.http.put<Resposta>(`${this.serverPort}/resposta`, resposta);
+  }
+
+  putConteudoResposta(resposta: Resposta): Observable<boolean> {
+
+    return this.http.put<boolean>(`${this.serverPort}/resposta/atualiza/conteudo`, resposta);
   }
 
   deleteResposta(id: number){

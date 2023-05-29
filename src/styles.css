@@ -16,6 +16,11 @@ html, body {
 
 }
 
+::-webkit-scrollbar {
+  display: none;
+
+}
+
 :root {
   --font-noto-sans: 'Noto Sans JP', sans-serif;
 

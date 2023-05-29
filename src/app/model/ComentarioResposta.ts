@@ -8,5 +8,6 @@ export class ComentarioResposta {
   public gostei: number;
   public resposta: Resposta;
   public usuario: Usuario;
+  public data: Date;
 
 }

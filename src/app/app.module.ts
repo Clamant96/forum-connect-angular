@@ -8,12 +8,14 @@ import { AppComponent } from './app.component';
 import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { PostagemComponent } from './postagem/postagem.component';
+import { RespostaComponent } from './resposta/resposta.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
-    PostagemComponent
+    PostagemComponent,
+    RespostaComponent
   ],
   imports: [
     BrowserModule,
