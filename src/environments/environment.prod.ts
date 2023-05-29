@@ -3,8 +3,8 @@ export const environment = {
   server: "http://localhost",
   port: ":8080",
   id: 1,
-  nome: "",
+  nome: "clmkevin",
   senha: "",
   email: "",
-  img: ""
+  img: "https://img.freepik.com/vetores-premium/homem-perfil-caricatura_18591-58482.jpg?w=2000"
 };

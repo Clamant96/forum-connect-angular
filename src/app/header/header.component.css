@@ -1,0 +1,56 @@
+header {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-top: 3px solid var(--color-icons);
+  border-bottom: 1px solid var(--border-gray);
+
+}
+
+header .bloco {
+  width: 80%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+header .bloco .nome {
+  font-size: 20px;
+
+  color: var(--text-color-black-titulo);
+
+}
+
+header .bloco .nome strong {
+  font-weight: 900;
+
+  color: var(--color-icons);
+
+}
+
+header .bloco .usuario {
+  padding: 0.5%;
+
+  width: 3%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+header .bloco .usuario img {
+  width: 100%;
+  height: auto;
+
+  border: 3px;
+
+}

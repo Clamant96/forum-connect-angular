@@ -22,7 +22,7 @@ section .bloco .bloco-menu {
   padding-top: 1.5%;
 
   width: 13%;
-  height: 97.5vh;
+  height: 90vh;
 
   display: flex;
   align-items: center;
@@ -208,6 +208,8 @@ section .bloco .bloco-lista-anotacao .bloco-lista .lista .pergunta .titulo {
   font-size: 17px;
 
   color: var(--text-color-blue);
+
+  cursor: pointer;
 
 }
 

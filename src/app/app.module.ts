@@ -9,13 +9,15 @@ import { FormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { PostagemComponent } from './postagem/postagem.component';
 import { RespostaComponent } from './resposta/resposta.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     PostagemComponent,
-    RespostaComponent
+    RespostaComponent,
+    HeaderComponent
   ],
   imports: [
     BrowserModule,
