@@ -159,13 +159,20 @@ export class PostagemComponent implements OnInit {
 
     this.resposta.postagem = postagem;
     this.resposta.usuario = usuarioLogado;
-    this.resposta.conteudo = this.memoriaConteudoResposta;
+    this.resposta.conteudo = this.memoriaConteudoResposta.replace('\n\t', '').replace('\n\t\t', '').replace('\n', '').replace('\t', '');
+    this.resposta.titulo = this.memoriaConteudoResposta.replace('\n\t', '').replace('\n\t\t', '').replace('\n', '').replace('\t', '');
+
+    console.log(this.memoriaConteudoResposta.replace('\n\t', '').replace('\n\t\t', '').replace('\n', '').replace('\t', ''));
 
     this.respostaService.postResposta(this.resposta).subscribe((resp: Resposta) => {
       this.getByIdPostagem(postagem.id);
 
+      this.memoriaConteudoResposta = "";
+
     }, err => {
       console.log("Ocorreu um erro ao tentar postar a resposta.");
+
+      this.memoriaConteudoResposta = "";
 
     });
 
