@@ -63,7 +63,7 @@
             <textarea type="text" [(ngModel)]='this.memoriaConteudo'></textarea>
           </div>
           <div class="preview-conteudo">
-            {{this.memoriaConteudo}}
+            {{this.renderizaTexto(this.memoriaConteudo)}}
           </div>
           <div class="botao" (click)="this.atualizarConteudoPostagem()">
             Atualizar

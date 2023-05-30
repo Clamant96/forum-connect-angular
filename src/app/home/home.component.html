@@ -15,7 +15,7 @@
         <div class="header">
           <div class="perguntas">
             <h1>Ultimas perguntas</h1>
-            <div class="botao">
+            <div class="botao" (click)="this.habilitaCampoAdicionarPostagem()">
               Faça uma pergunta
             </div>
           </div>
@@ -43,6 +43,25 @@
                 <div class="data">{{this.calculaTempoPostagem(postagem.data)}}</div>
               </div>
             </div>
+          </div>
+        </div>
+        <div *ngIf="this.isAdicionarPostagem" class="postar-postagem">
+          <div class="editar-conteudo">
+            <p>Titulo</p>
+            <input type="text" name="titulo" [(ngModel)]='this.memoriaTitulo' />
+            <p>Conteudo</p>
+            <textarea type="text" [(ngModel)]='this.memoriaConteudo'></textarea>
+            <p>Categoria</p>
+            <select [(ngModel)]='this.categoria.id' name="categoria" class="categoria" (change)='changeCategoria($event)'>
+              <option>-- Seleciona uma categoria --</option>
+              <option *ngFor='let categoria of this.listaCategoria' value="{{categoria.id}}">{{categoria.nome}}</option>
+            </select>
+          </div>
+          <div class="preview-conteudo">
+            {{this.memoriaConteudo}}
+          </div>
+          <div class="botao" (click)="this.publicarPostagem()">
+            Publicar
           </div>
         </div>
       </div>

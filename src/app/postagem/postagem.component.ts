@@ -37,6 +37,8 @@ export class PostagemComponent implements OnInit {
   public memoriaConteudoComentario: string;
   public memoriaConteudoResposta: string;
 
+  public markdown: string = "";
+
   constructor(
     private route: ActivatedRoute,
     private postagemService: PostagemService,
@@ -289,7 +291,7 @@ export class PostagemComponent implements OnInit {
   }
 
   habilitaCampoEdicaoPostagem() {
-    if(this.postagem.id == this.idUserLogado) {
+    if(this.postagem.usuario.id == this.idUserLogado) {
       this.isEditarPostagem = !this.isEditarPostagem;
     }
 
@@ -325,6 +327,12 @@ export class PostagemComponent implements OnInit {
       this.memoriaConteudo = "";
     }
 
+  }
+
+  renderizaTexto(conteudo: string) {
+    conteudo = conteudo.replace('\n\t\t', '[ntt]').replace('\n\t', '[nt]').replace('\n', '[n]').replace('\t', '[t]');
+
+    return conteudo;
   }
 
 }

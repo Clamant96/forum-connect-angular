@@ -1,8 +1,11 @@
+import { CategoriaService } from './../service/categoria.service';
+import { environment } from 'src/environments/environment.prod';
 import { Postagem } from '../model/Postagem';
 import { Usuario } from '../model/Usuario';
 import { UsuarioService } from '../service/usuario.service';
 import { PostagemService } from './../service/postagem.service';
 import { Component, OnInit } from '@angular/core';
+import { Categoria } from '../model/Categoria';
 
 @Component({
   selector: 'app-home',
@@ -11,13 +14,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HomeComponent implements OnInit {
 
+  public postagem: Postagem = new Postagem();
+  public usuario: Usuario = new Usuario();
+  public categoria: Categoria = new Categoria();
+
   public listaPostagens: Postagem[] = [];
+  public listaCategoria: Categoria[] = [];
 
   public idPostagemSelecionada: number = 0;
 
+  public isAdicionarPostagem: boolean = false;
+
+  public memoriaConteudo: string;
+  public memoriaTitulo: string;
+
+  public idUsuario: number = environment.id;
+
+  public selecaoCategoria: string = "";
+
   constructor(
     private postagemService: PostagemService,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private categoriaService: CategoriaService
 
   ) { }
 
@@ -25,6 +43,7 @@ export class HomeComponent implements OnInit {
     window.scroll(0, 0);
 
     this.getAllPostagens();
+    this.getAllCategorias();
     this.renderizaBotaoMenu();
 
   }
@@ -43,6 +62,19 @@ export class HomeComponent implements OnInit {
       });
 
     });
+
+  }
+
+  getAllCategorias() {
+    this.categoriaService.findAllCategorias().subscribe((resp: Categoria[]) => {
+      this.listaCategoria = resp;
+
+    });
+
+  }
+
+  changeCategoria(event: any) {
+    this.categoria.id = event.target.value;
 
   }
 
@@ -174,6 +206,39 @@ export class HomeComponent implements OnInit {
     this.idPostagemSelecionada = 0;
 
     this.renderizaBotaoMenu(); // ATUALIZA MENU
+    this.getAllPostagens(); // ATUALIZA LISTA DE POSTAGENS
+
+  }
+
+  habilitaCampoAdicionarPostagem() {
+    this.isAdicionarPostagem = !this.isAdicionarPostagem;
+
+  }
+
+  publicarPostagem() {
+    this.postagem = new Postagem();
+    this.usuario.id = this.idUsuario;
+
+    this.postagem.titulo = this.memoriaTitulo;
+    this.postagem.conteudo = this.memoriaConteudo;
+    this.postagem.usuario = this.usuario;
+    this.postagem.categoria = this.categoria;
+
+    this.postagemService.postPostagem(this.postagem).subscribe((resp: Postagem) => {
+      this.isAdicionarPostagem = false; //FECHA A ABA DE POSTAGEM
+      this.memoriaConteudo = "";
+      this.memoriaTitulo = "";
+
+      this.getAllPostagens(); // ATUALIZA A LISTA DE POSTAGEM
+
+    }, err => {
+      console.log("Ocorreu um erro ao tentar postar a postagem.");
+
+      this.isAdicionarPostagem = false; //FECHA A ABA DE POSTAGEM
+      this.memoriaConteudo = "";
+      this.memoriaTitulo = "";
+
+    });
 
   }
 
