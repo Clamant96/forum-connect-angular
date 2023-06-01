@@ -132,7 +132,10 @@ export class PostagemComponent implements OnInit {
     let usuarioLogado: Usuario = new Usuario();
     usuarioLogado.id = this.idUserLogado;
 
-    this.comentario.postagem = postagem;
+    let post = new Postagem();
+    post.id = postagem.id;
+
+    this.comentario.postagem = post;
     this.comentario.usuario = usuarioLogado;
     this.comentario.conteudo = this.memoriaConteudoComentario;
 
@@ -143,11 +146,13 @@ export class PostagemComponent implements OnInit {
       this.getByIdPostagem(postagem.id);
 
       this.isAdicionarComentarioPostagem = false; // FECHA O CAMPO DE POSTAGEM DE COMENTARIO
+      this.memoriaConteudoComentario = "";
 
     }, err => {
       console.log("Ocorreu um erro ao tentar postar o comentario.");
 
       this.isAdicionarComentarioPostagem = false; // FECHA O CAMPO DE POSTAGEM DE COMENTARIO
+      this.memoriaConteudoComentario = "";
 
     });
 
@@ -159,7 +164,10 @@ export class PostagemComponent implements OnInit {
     let usuarioLogado: Usuario = new Usuario();
     usuarioLogado.id = this.idUserLogado;
 
-    this.resposta.postagem = postagem;
+    let post = new Postagem();
+    post.id = postagem.id;
+
+    this.resposta.postagem = post;
     this.resposta.usuario = usuarioLogado;
     this.resposta.conteudo = this.memoriaConteudoResposta.replace('\n\t', '').replace('\n\t\t', '').replace('\n', '').replace('\t', '');
     this.resposta.titulo = this.memoriaConteudoResposta.replace('\n\t', '').replace('\n\t\t', '').replace('\n', '').replace('\t', '');
@@ -284,6 +292,18 @@ export class PostagemComponent implements OnInit {
       },
       {
         descricao: "Criação de menus"
+      },
+      {
+        descricao: "renderizacao de comentarios"
+      },
+      {
+        descricao: "renderizacao de respostas"
+      },
+      {
+        descricao: "renderizacao de comentarios em respostas"
+      },
+      {
+        descricao: "like em postagens, comentarios e respostas"
       }
     ];
 

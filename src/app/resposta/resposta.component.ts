@@ -222,7 +222,10 @@ export class RespostaComponent implements OnInit {
     let usuarioLogado: Usuario = new Usuario();
     usuarioLogado.id = this.idUserLogado;
 
-    this.comentario.resposta = resposta;
+    let res = new Resposta();
+    res.id = resposta.id;
+
+    this.comentario.resposta = res;
     this.comentario.usuario = usuarioLogado;
     this.comentario.conteudo = this.memoriaConteudoComentario;
 
@@ -230,11 +233,13 @@ export class RespostaComponent implements OnInit {
       this.getByIdPostagem(resposta.postagem.id); // ATUALIZA A LISTA DE RESPOSTAS
 
       this.isAdicionarComentarioPostagem = false; // FECHA O CAMPO DE POSTAGEM DE COMENTARIO
+      this.memoriaConteudoComentario = "";
 
     }, err => {
       console.log("Ocorreu um erro ao tentar postar o comentario.");
 
       this.isAdicionarComentarioPostagem = false; // FECHA O CAMPO DE POSTAGEM DE COMENTARIO
+      this.memoriaConteudoComentario = "";
 
     });
 

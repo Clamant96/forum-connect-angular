@@ -189,6 +189,18 @@ export class HomeComponent implements OnInit {
       },
       {
         descricao: "Criação de menus"
+      },
+      {
+        descricao: "renderizacao de comentarios"
+      },
+      {
+        descricao: "renderizacao de respostas"
+      },
+      {
+        descricao: "renderizacao de comentarios em respostas"
+      },
+      {
+        descricao: "like em postagens, comentarios e respostas"
       }
     ];
 
