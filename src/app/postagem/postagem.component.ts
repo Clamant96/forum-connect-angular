@@ -10,6 +10,7 @@ import { environment } from 'src/environments/environment.prod';
 import { UsuarioService } from '../service/usuario.service';
 import { Comentario } from '../model/Comentario';
 import { Resposta } from '../model/Resposta';
+import { Markdown } from '../model/Markdown';
 
 @Component({
   selector: 'app-postagem',
@@ -355,4 +356,29 @@ export class PostagemComponent implements OnInit {
     return conteudo;
   }
 
+  renderizaMarkdown(conteudo: string) {
+    let dados: Markdown[] = [];
+
+    conteudo.split('```').map((item) => {
+
+      let markdown: Markdown = new Markdown();
+
+      if(item.includes('java')) {
+        markdown.tipo = "codigo";
+        markdown.conteudo = item;
+
+      }else {
+        markdown.tipo = "texto";
+        markdown.conteudo = item;
+
+      }
+
+      dados.push(markdown);
+
+    });
+
+    console.log(dados);
+
+    return dados;
+  }
 }

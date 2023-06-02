@@ -154,6 +154,11 @@
 
   color: var(--text-color-gray-text-post);
 
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
   /*background-color: var(--background-color-code-gray);*/
 
 }

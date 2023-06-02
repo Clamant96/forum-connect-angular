@@ -6,5 +6,6 @@ export class Categoria {
   public nome: string;
   public cor: string;
   public postagens: Postagem[];
+  public descricao: string;
 
 }

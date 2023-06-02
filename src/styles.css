@@ -29,6 +29,7 @@ html, body {
   --border-color-anotacao: #f0e0a4;
   --border-hr: #dee2e5;
   --border-comentario: #e9edf0;
+  --border-cubo-black: #262626;
 
   --button-border-right-hover-color: #F48225;
   --background-color-button-hover: #F1F2F3;
@@ -56,6 +57,7 @@ html, body {
   --text-color-gray-value: #64747c;
   --text-color-gray-time: #9199a1;
   --text-color-gray-add-comentario: #9fa9b3;
+  --text-color-gray-qtd-postagens: #838c95;
   --text-color-black-titulo: #222426;
 
 }

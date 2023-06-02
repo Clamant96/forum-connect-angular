@@ -5,13 +5,14 @@
       <div class="botao-menu" id="home" (click)="this.removeSelecaoDePostagem()">Home</div>
       <div class="fixo">PUBLICO</div>
       <div class="botao-menu" id="pergunta">Perguntas</div>
-      <div class="botao-menu">Categorias</div>
+      <div class="botao-menu" id="categoria" (click)="this.selecionaCategoria()">Categorias</div>
       <div class="botao-menu">Usuarios</div>
     </div>
 
     <div class="bloco-lista-anotacao">
-      <app-postagem *ngIf="this.idPostagemSelecionada > 0" [id]="this.idPostagemSelecionada"></app-postagem>
-      <div *ngIf="this.idPostagemSelecionada == 0" class="bloco-lista">
+      <app-postagem *ngIf="this.idPostagemSelecionada > 0 && !this.habilitaMenuCategoria" [id]="this.idPostagemSelecionada"></app-postagem>
+      <app-categoria *ngIf="this.habilitaMenuCategoria"></app-categoria>
+      <div *ngIf="this.idPostagemSelecionada == 0 && !this.habilitaMenuCategoria" class="bloco-lista">
         <div class="header">
           <div class="perguntas">
             <h1>Ultimas perguntas</h1>
@@ -66,7 +67,7 @@
         </div>
       </div>
 
-      <div *ngIf="this.idPostagemSelecionada == 0" class="anotacoes">
+      <div *ngIf="this.idPostagemSelecionada == 0 && !this.habilitaMenuCategoria" class="anotacoes">
         <header>Ultimas atualizações</header>
         <section *ngFor="let anotacao of this.renderizaAnotacoes()">
           <div class="bloco-anotacao">

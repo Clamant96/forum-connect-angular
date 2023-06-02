@@ -1,0 +1,35 @@
+<div class="bloco-categoria">
+
+  <div class="bloco-lista">
+    <div class="header">
+      <div class="perguntas">
+        <h1>Categorias</h1>
+        <h2>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Vitae architecto earum odit, vero quasi fugit! At ad illo recusandae accusamus nam aliquam, ut officia, autem incidunt vero, laudantium consequuntur nulla?</h2>
+      </div>
+    </div>
+
+    <div class="conteudo">
+
+      <div class="dados-categoria">
+        <div class="bloco-mensagem" *ngFor="let categoria of this.listaCategorias" >
+          <div class="bloco-dados">
+            <div class="cubo" [style]="categoria.cor"></div>
+            <div class="nome">
+              {{categoria.nome}}
+            </div>
+          </div>
+
+          <div class="descricao">
+            {{categoria.descricao}}
+          </div>
+
+          <div class="referencias">
+            {{this.renderizaTotalDePerguntas(categoria)}} perguntas
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+</div>

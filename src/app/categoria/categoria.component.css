@@ -1,0 +1,168 @@
+.bloco-categoria {
+  width: 100%;
+  height: 92.5vh;
+
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+
+  overflow-y: scroll;
+
+}
+
+.bloco-categoria::-webkit-scrollbar {
+  display: none;
+
+}
+
+.bloco-categoria .bloco-lista {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.bloco-categoria .bloco-lista .header {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.bloco-categoria .bloco-lista .header .perguntas {
+  margin-top: 2vh;
+  margin-left: 2.5%;
+
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+.bloco-categoria .bloco-lista .header .perguntas h1 {
+  font-size: 27px;
+  font-weight: normal;
+
+}
+
+.bloco-categoria .bloco-lista .header .perguntas h2 {
+  font-size: 16px;
+  font-weight: normal;
+
+  margin-top: 0.5%;
+  margin-bottom: 1%;
+
+  width: 60%;
+  height: auto;
+
+}
+
+.bloco-categoria .bloco-lista .conteudo {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.bloco-categoria .bloco-lista .conteudo .dados-categoria {
+  width: 96%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+  flex-wrap: wrap;
+
+}
+
+.bloco-categoria .bloco-lista .conteudo .dados-categoria .bloco-mensagem {
+  margin: 0.5%;
+  padding: 0.8%;
+
+  width: 22%;
+  min-height: 13vh;
+
+  border: 1px solid var(--border-gray);
+  border-radius: 3px;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+
+  cursor: pointer;
+
+}
+
+.bloco-categoria .bloco-lista .conteudo .dados-categoria .bloco-mensagem .bloco-dados {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+}
+
+.bloco-categoria .bloco-lista .conteudo .dados-categoria .bloco-mensagem .bloco-dados .cubo {
+  width: 13px;
+  height: 13px;
+
+  border: 2px solid var(--border-cubo-black);
+  border-radius: 3px;
+
+  margin-right: 2%;
+
+}
+
+.bloco-categoria .bloco-lista .conteudo .dados-categoria .bloco-mensagem .bloco-dados .nome {
+  padding: 0.5% 1.5%;
+
+  background-color: var(--background-color-blue-categoria);
+
+  font-size: 12px;
+
+  color: var(--text-color-blue-categoria);
+
+  border-radius: 3px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.bloco-categoria .bloco-lista .conteudo .dados-categoria .bloco-mensagem .descricao {
+  font-size: 13px;
+
+  color: var(--text-color-black-text-title-post);
+
+  width: 100%;
+  height: auto;
+
+}
+
+.bloco-categoria .bloco-lista .conteudo .dados-categoria .bloco-mensagem .referencias {
+  width: 100%;
+  height: auto;
+
+  font-size: 12px;
+
+  color: var(--text-color-gray-qtd-postagens);
+
+}

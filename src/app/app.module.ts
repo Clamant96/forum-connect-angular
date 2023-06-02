@@ -11,6 +11,7 @@ import { PostagemComponent } from './postagem/postagem.component';
 import { RespostaComponent } from './resposta/resposta.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
+import { CategoriaComponent } from './categoria/categoria.component';
 
 @NgModule({
   declarations: [
@@ -19,7 +20,8 @@ import { LoginComponent } from './login/login.component';
     PostagemComponent,
     RespostaComponent,
     HeaderComponent,
-    LoginComponent
+    LoginComponent,
+    CategoriaComponent
   ],
   imports: [
     BrowserModule,

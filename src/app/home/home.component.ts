@@ -32,6 +32,8 @@ export class HomeComponent implements OnInit {
 
   public selecaoCategoria: string = "";
 
+  public habilitaMenuCategoria: boolean = false;
+
   constructor(
     private postagemService: PostagemService,
     private usuarioService: UsuarioService,
@@ -170,13 +172,20 @@ export class HomeComponent implements OnInit {
 
   renderizaBotaoMenu() {
 
-    if(window.document.URL.includes("home") && this.idPostagemSelecionada == 0) {
+    if(window.document.URL.includes("home") && this.idPostagemSelecionada == 0 && !this.habilitaMenuCategoria) {
       window.document.querySelector('section .bloco .bloco-menu #home')?.setAttribute('style', 'background-color: var(--background-color-button-hover); color: var(--text-color-black-menu-hover); font-weight: bold; border-right: 3px solid var(--button-border-right-hover-color); margin-left: 0%; width: 90%;');
       window.document.querySelector('section .bloco .bloco-menu #pergunta')?.setAttribute('style', '');
+      window.document.querySelector('section .bloco .bloco-menu #categoria')?.setAttribute('style', '');
 
     }else if(this.idPostagemSelecionada > 0) {
       window.document.querySelector('section .bloco .bloco-menu #pergunta')?.setAttribute('style', 'background-color: var(--background-color-button-hover); color: var(--text-color-black-menu-hover); font-weight: bold; border-right: 3px solid var(--button-border-right-hover-color); margin-left: 0%; width: 90%;');
       window.document.querySelector('section .bloco .bloco-menu #home')?.setAttribute('style', ''); // REMOVE A CONFIGURACAO DE HOME
+      window.document.querySelector('section .bloco .bloco-menu #categoria')?.setAttribute('style', '');
+
+    }else if(this.habilitaMenuCategoria) {
+      window.document.querySelector('section .bloco .bloco-menu #categoria')?.setAttribute('style', 'background-color: var(--background-color-button-hover); color: var(--text-color-black-menu-hover); font-weight: bold; border-right: 3px solid var(--button-border-right-hover-color); margin-left: 0%; width: 90%;');
+      window.document.querySelector('section .bloco .bloco-menu #pergunta')?.setAttribute('style', '');
+      window.document.querySelector('section .bloco .bloco-menu #home')?.setAttribute('style', '');
 
     }
 
@@ -219,6 +228,7 @@ export class HomeComponent implements OnInit {
 
     this.renderizaBotaoMenu(); // ATUALIZA MENU
     this.getAllPostagens(); // ATUALIZA LISTA DE POSTAGENS
+    this.selecionaCategoria();
 
   }
 
@@ -251,6 +261,15 @@ export class HomeComponent implements OnInit {
       this.memoriaTitulo = "";
 
     });
+
+  }
+
+  selecionaCategoria() {
+    this.idPostagemSelecionada = 0; // ZERA SELECAO DE POSTAGEM CASO TENHA SIDO CLICADA
+
+    this.habilitaMenuCategoria = !this.habilitaMenuCategoria;
+
+    this.renderizaBotaoMenu();
 
   }
 

@@ -4,9 +4,9 @@
     <div class="header">
       <div class="perguntas">
         <h1>{{postagem.titulo}}</h1>
-        <div class="botao">
+        <!--<div class="botao">
           Faça uma pergunta
-        </div>
+        </div>-->
       </div>
     </div>
 
@@ -32,6 +32,10 @@
 
           <div class="mensagem">
             {{postagem.conteudo}}
+            <!--<div class="array-mensagem" *ngFor="let dado of this.renderizaMarkdown(postagem.conteudo)">
+              <p *ngIf="dado.tipo == 'texto'">{{dado.conteudo}}</p>
+              <textarea *ngIf="dado.tipo == 'codigo'" type="text" [(ngModel)]='dado.conteudo'></textarea>
+            </div>-->
           </div>
         </div>
 
