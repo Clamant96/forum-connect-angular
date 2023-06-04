@@ -1,6 +1,7 @@
 import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CategoriaService } from '../service/categoria.service';
 import { Categoria } from '../model/Categoria';
+import { environment } from 'src/environments/environment.prod';
 
 @Component({
   selector: 'app-categoria',
@@ -12,6 +13,10 @@ export class CategoriaComponent implements OnInit {
   @Output() idCategoriaEvent = new EventEmitter<number>();
 
   public listaCategorias: Categoria[] = [];
+
+  public categoria: Categoria = new Categoria();
+
+  public isCadastrarCategoria: boolean = false;
 
   constructor(
     private categoriaService: CategoriaService
@@ -56,6 +61,25 @@ export class CategoriaComponent implements OnInit {
   capturaIdDaCategoriaSelecionada(categoria: Categoria) {
     this.pushIdCategoria(categoria.id);
 
+  }
+
+  postCategoria() {
+    this.categoriaService.postCategoria(this.categoria).subscribe((resp: Categoria) => {
+
+      this.getAllCategorias();
+
+      this.categoria = new Categoria();
+
+    }, err => {
+
+      console.log('Ocorreu um erro ao tentar cadastrar a categoria.');
+
+    });
+
+  }
+
+  habilitarCadastrarCategoria() {
+    this.isCadastrarCategoria = !this.isCadastrarCategoria;
   }
 
 }
