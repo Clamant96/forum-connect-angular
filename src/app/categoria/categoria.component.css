@@ -145,6 +145,13 @@
   align-items: center;
   justify-content: center;
 
+  transition: background-color, 0.2s ease-in-out;
+
+}
+
+.bloco-categoria .bloco-lista .conteudo .dados-categoria .bloco-mensagem .bloco-dados .nome:hover {
+  background-color: var(--background-color-blue-categoria-hover);
+
 }
 
 .bloco-categoria .bloco-lista .conteudo .dados-categoria .bloco-mensagem .descricao {

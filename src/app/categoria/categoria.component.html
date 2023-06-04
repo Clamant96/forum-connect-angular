@@ -12,7 +12,7 @@
 
       <div class="dados-categoria">
         <div class="bloco-mensagem" *ngFor="let categoria of this.listaCategorias" >
-          <div class="bloco-dados">
+          <div class="bloco-dados" (click)="this.capturaIdDaCategoriaSelecionada(categoria)">
             <div class="cubo" [style]="categoria.cor"></div>
             <div class="nome">
               {{categoria.nome}}

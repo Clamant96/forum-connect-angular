@@ -11,11 +11,17 @@
 
     <div class="bloco-lista-anotacao">
       <app-postagem *ngIf="this.idPostagemSelecionada > 0 && !this.habilitaMenuCategoria" [id]="this.idPostagemSelecionada"></app-postagem>
-      <app-categoria *ngIf="this.habilitaMenuCategoria"></app-categoria>
+      <app-categoria *ngIf="this.habilitaMenuCategoria" (idCategoriaEvent)="this.capturaIdDaCategoriaSelecionada($event)"></app-categoria>
       <div *ngIf="this.idPostagemSelecionada == 0 && !this.habilitaMenuCategoria" class="bloco-lista">
         <div class="header">
           <div class="perguntas">
-            <h1>Ultimas perguntas</h1>
+            <h1 *ngIf="this.categoriaSelecionadaOutput.id == null">Ultimas perguntas</h1>
+            <h1 *ngIf="this.categoriaSelecionadaOutput.id > 0">
+              Perguntas filtradas [{{this.categoriaSelecionadaOutput.nome}}]
+              <div *ngIf="this.categoriaSelecionadaOutput.id > 0" class="descricao">
+                {{this.categoriaSelecionadaOutput.descricao}} Lorem ipsum dolor sit, amet consectetur adipisicing elit. Ratione iste facilis rerum soluta, repellendus reiciendis ipsum placeat eveniet ipsa nesciunt delectus tenetur. Minus quaerat deserunt quod quos voluptates ipsam distinctio!
+              </div>
+            </h1>
             <div class="botao" (click)="this.habilitaCampoAdicionarPostagem()">
               Faça uma pergunta
             </div>

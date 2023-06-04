@@ -122,8 +122,20 @@ section .bloco .bloco-lista-anotacao .bloco-lista .header .perguntas {
 }
 
 section .bloco .bloco-lista-anotacao .bloco-lista .header .perguntas h1 {
+  max-width: 75%;
+
   font-weight: 27px;
   font-weight: normal;
+
+}
+
+section .bloco .bloco-lista-anotacao .bloco-lista .header .perguntas h1 .descricao {
+  width: 100%;
+  height: auto;
+
+  font-size: 13px !important;
+
+  color: var(--text-color-gray-text-post);
 
 }
 

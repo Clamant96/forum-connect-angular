@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CategoriaService } from '../service/categoria.service';
 import { Categoria } from '../model/Categoria';
 
@@ -8,6 +8,8 @@ import { Categoria } from '../model/Categoria';
   styleUrls: ['./categoria.component.css']
 })
 export class CategoriaComponent implements OnInit {
+
+  @Output() idCategoriaEvent = new EventEmitter<number>();
 
   public listaCategorias: Categoria[] = [];
 
@@ -20,6 +22,11 @@ export class CategoriaComponent implements OnInit {
     window.scroll(0, 0);
 
     this.getAllCategorias();
+
+  }
+
+  pushIdCategoria(id: number) {
+    this.idCategoriaEvent.emit(id);
 
   }
 
@@ -44,6 +51,11 @@ export class CategoriaComponent implements OnInit {
 
       return total;
     }catch{return;}
+  }
+
+  capturaIdDaCategoriaSelecionada(categoria: Categoria) {
+    this.pushIdCategoria(categoria.id);
+
   }
 
 }

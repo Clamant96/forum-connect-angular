@@ -17,11 +17,13 @@ export class HomeComponent implements OnInit {
   public postagem: Postagem = new Postagem();
   public usuario: Usuario = new Usuario();
   public categoria: Categoria = new Categoria();
+  public categoriaSelecionadaOutput: Categoria = new Categoria();
 
   public listaPostagens: Postagem[] = [];
   public listaCategoria: Categoria[] = [];
 
   public idPostagemSelecionada: number = 0;
+  public idCategoriaSelecionada: number = 0;
 
   public isAdicionarPostagem: boolean = false;
 
@@ -50,6 +52,16 @@ export class HomeComponent implements OnInit {
 
   }
 
+  capturaIdDaCategoriaSelecionada(id: any) {
+    this.idCategoriaSelecionada = id;
+    this.habilitaMenuCategoria = false;
+
+    this.getAllPostagensByIdCategoria(this.idCategoriaSelecionada);
+    this.renderizaBotaoMenu();
+    this.getByIdCategoriaOutput(id);
+
+  }
+
   getAllPostagens() {
     this.postagemService.findAllPostagens().subscribe((resp: Postagem[]) => {
       this.listaPostagens = resp;
@@ -70,6 +82,35 @@ export class HomeComponent implements OnInit {
   getAllCategorias() {
     this.categoriaService.findAllCategorias().subscribe((resp: Categoria[]) => {
       this.listaCategoria = resp;
+
+    });
+
+  }
+
+  getAllPostagensByIdCategoria(id: number) {
+    this.listaPostagens = [];
+
+    this.postagemService.findPostagensByIdCategoria(id).subscribe((resp: Postagem[]) => {
+      this.listaPostagens = resp;
+
+      this.listaPostagens.map((postagem) => {
+        // CARREGA A QTD DE POSTAGENS DO USUARIO
+        this.usuarioService.findByIdUsuario(postagem.usuario.id).subscribe((respUser: Usuario) => {
+          postagem.usuario = respUser;
+
+        });
+
+      });
+
+    });
+
+  }
+
+  getByIdCategoriaOutput(id: number) {
+    this.categoriaSelecionadaOutput = new Categoria();
+
+    this.categoriaService.findByIdCategoria(id).subscribe((resp: Categoria) => {
+      this.categoriaSelecionadaOutput = resp;
 
     });
 
@@ -172,7 +213,7 @@ export class HomeComponent implements OnInit {
 
   renderizaBotaoMenu() {
 
-    if(window.document.URL.includes("home") && this.idPostagemSelecionada == 0 && !this.habilitaMenuCategoria) {
+    if(window.document.URL.includes("home") && this.idPostagemSelecionada == 0 && !this.habilitaMenuCategoria && this.idCategoriaSelecionada == 0) {
       window.document.querySelector('section .bloco .bloco-menu #home')?.setAttribute('style', 'background-color: var(--background-color-button-hover); color: var(--text-color-black-menu-hover); font-weight: bold; border-right: 3px solid var(--button-border-right-hover-color); margin-left: 0%; width: 90%;');
       window.document.querySelector('section .bloco .bloco-menu #pergunta')?.setAttribute('style', '');
       window.document.querySelector('section .bloco .bloco-menu #categoria')?.setAttribute('style', '');
@@ -186,6 +227,11 @@ export class HomeComponent implements OnInit {
       window.document.querySelector('section .bloco .bloco-menu #categoria')?.setAttribute('style', 'background-color: var(--background-color-button-hover); color: var(--text-color-black-menu-hover); font-weight: bold; border-right: 3px solid var(--button-border-right-hover-color); margin-left: 0%; width: 90%;');
       window.document.querySelector('section .bloco .bloco-menu #pergunta')?.setAttribute('style', '');
       window.document.querySelector('section .bloco .bloco-menu #home')?.setAttribute('style', '');
+
+    }else if(this.idCategoriaSelecionada > 0) {
+      window.document.querySelector('section .bloco .bloco-menu #pergunta')?.setAttribute('style', 'background-color: var(--background-color-button-hover); color: var(--text-color-black-menu-hover); font-weight: bold; border-right: 3px solid var(--button-border-right-hover-color); margin-left: 0%; width: 90%;');
+      window.document.querySelector('section .bloco .bloco-menu #home')?.setAttribute('style', ''); // REMOVE A CONFIGURACAO DE HOME
+      window.document.querySelector('section .bloco .bloco-menu #categoria')?.setAttribute('style', '');
 
     }
 
@@ -225,10 +271,13 @@ export class HomeComponent implements OnInit {
 
   removeSelecaoDePostagem() {
     this.idPostagemSelecionada = 0;
+    this.idCategoriaSelecionada = 0;
+    this.habilitaMenuCategoria = false;
+    this.categoriaSelecionadaOutput = new Categoria();
 
     this.renderizaBotaoMenu(); // ATUALIZA MENU
     this.getAllPostagens(); // ATUALIZA LISTA DE POSTAGENS
-    this.selecionaCategoria();
+    this.habilitaMenuCategoria = false;
 
   }
 
@@ -266,8 +315,10 @@ export class HomeComponent implements OnInit {
 
   selecionaCategoria() {
     this.idPostagemSelecionada = 0; // ZERA SELECAO DE POSTAGEM CASO TENHA SIDO CLICADA
+    this.idCategoriaSelecionada = 0;
+    this.categoriaSelecionadaOutput = new Categoria();
 
-    this.habilitaMenuCategoria = !this.habilitaMenuCategoria;
+    this.habilitaMenuCategoria = true;
 
     this.renderizaBotaoMenu();
 
