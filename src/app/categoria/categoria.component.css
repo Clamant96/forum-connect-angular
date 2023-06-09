@@ -154,6 +154,141 @@
 
 }
 
+.bloco-categoria .bloco-lista .conteudo .dados-categoria .bloco-mensagem .bloco-dados .botao-editar {
+  width: auto;
+  height: auto;
+
+  border-radius: 3px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  margin-left: 1%;
+
+  color: var(--text-color-blue-categoria);
+
+  cursor: pointer;
+
+}
+
+.bloco-categoria .bloco-lista .conteudo .dados-categoria .bloco-mensagem .bloco-dados .botao-editar svg {
+  width: 100%;
+  height: auto;
+
+}
+
+.bloco-categoria .bloco-lista .conteudo .dados-categoria .bloco-edita-categoria {
+  width: 100%;
+  min-height: 13vh;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: space-between;
+
+  cursor: pointer;
+
+}
+
+.bloco-categoria .bloco-lista .conteudo .dados-categoria .bloco-edita-categoria .dados {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+}
+
+.bloco-categoria .bloco-lista .conteudo .dados-categoria .bloco-edita-categoria .dados .nome {
+  padding: 1%;
+
+  width: 98%;
+  height: auto;
+
+  font-size: 13px;
+
+  border: none;
+
+  outline: none;
+
+}
+
+.bloco-categoria .bloco-lista .conteudo .dados-categoria .bloco-edita-categoria .dados .cor {
+  width: 20%;
+  height: 3vh;
+
+  font-size: 13px;
+
+  border: none;
+
+  outline: none;
+
+  padding: 0 !important;
+  margin: 0 !important;
+
+  background-color: transparent !important;
+
+}
+
+.bloco-categoria .bloco-lista .conteudo .dados-categoria .bloco-edita-categoria .descricao-categoria {
+  padding: 1%;
+
+  width: 98%;
+  height: 5vh;
+
+  font-size: 13px;
+
+  border: none;
+
+  outline: none;
+
+}
+
+.bloco-categoria .bloco-lista .conteudo .dados-categoria .bloco-edita-categoria .botao {
+  padding: 1% 2%;
+
+  font-size: 13px;
+
+  background-color: var(--background-color-blue-categoria);
+
+  color: var(--text-color-blue-categoria);
+
+  border-radius: 3px;
+
+  transition: background-color, 0.2s ease-in-out;
+}
+
+.bloco-categoria .bloco-lista .conteudo .dados-categoria .bloco-edita-categoria .botao:hover {
+  background-color: var(--background-color-blue-categoria-hover);
+
+}
+
+.bloco-categoria .bloco-lista .conteudo .dados-categoria .bloco-edita-categoria .botao-cadastrar {
+  width: 100%;
+  height: 10vh;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+}
+
+.bloco-categoria .bloco-lista .conteudo .dados-categoria .bloco-edita-categoria .botao-cadastrar .img {
+  width: 40%;
+  height: 10vh;
+
+}
+
+.bloco-categoria .bloco-lista .conteudo .dados-categoria .bloco-edita-categoria .botao-cadastrar .img svg {
+  width: 100%;
+  height: auto;
+
+  color: var(--text-color-gray-add-comentario);
+
+}
+
 .bloco-categoria .bloco-lista .conteudo .dados-categoria .bloco-mensagem .descricao {
   font-size: 13px;
 

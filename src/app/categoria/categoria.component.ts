@@ -15,6 +15,7 @@ export class CategoriaComponent implements OnInit {
   public listaCategorias: Categoria[] = [];
 
   public categoria: Categoria = new Categoria();
+  public editarCategoria: Categoria = new Categoria();
 
   public isCadastrarCategoria: boolean = false;
 
@@ -81,6 +82,22 @@ export class CategoriaComponent implements OnInit {
 
   habilitarCadastrarCategoria(status: boolean) {
     this.isCadastrarCategoria = status;
+  }
+
+  habilitaEditarCategoria(categoria: Categoria) {
+    this.editarCategoria = categoria;
+
+  }
+
+  putCategoria() {
+    this.categoriaService.putCategoria(this.editarCategoria).subscribe((resp: Categoria) => {
+      this.editarCategoria = new Categoria();
+
+    }, err => {
+      console.log('Ocorreu um erro ao tentar atualizar a categoria.');
+
+    });
+
   }
 
 }
