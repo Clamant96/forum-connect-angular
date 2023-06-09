@@ -67,6 +67,7 @@ export class CategoriaComponent implements OnInit {
     this.categoriaService.postCategoria(this.categoria).subscribe((resp: Categoria) => {
 
       this.getAllCategorias();
+      this.habilitarCadastrarCategoria(false);
 
       this.categoria = new Categoria();
 
@@ -78,8 +79,8 @@ export class CategoriaComponent implements OnInit {
 
   }
 
-  habilitarCadastrarCategoria() {
-    this.isCadastrarCategoria = !this.isCadastrarCategoria;
+  habilitarCadastrarCategoria(status: boolean) {
+    this.isCadastrarCategoria = status;
   }
 
 }

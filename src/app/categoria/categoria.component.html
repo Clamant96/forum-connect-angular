@@ -28,7 +28,7 @@
           </div>
         </div>
 
-        <div class="bloco-cadastra-categoria" (click)="this.habilitarCadastrarCategoria()">
+        <div class="bloco-cadastra-categoria" (click)="this.habilitarCadastrarCategoria(true)">
           <div *ngIf="this.isCadastrarCategoria" class="dados">
             <input class="nome" type="text" [(ngModel)]='this.categoria.nome' placeholder="Nome da categoria" />
             <input class="cor" type="color" [(ngModel)]='this.categoria.cor' value="#ffffff" />
