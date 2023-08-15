@@ -44,6 +44,7 @@ html, body {
   --background-color-anotacao-section: #FDF7E2;
   --background-color-gostei-gray: #BABFC4;
   --background-color-code-gray: #f6f6f6;
+  --background-color-login-gray: hsl(210,8%,95%);;
 
   --color-icons: #F48225;
 
@@ -60,5 +61,7 @@ html, body {
   --text-color-gray-add-comentario: #9fa9b3;
   --text-color-gray-qtd-postagens: #838c95;
   --text-color-black-titulo: #222426;
+
+  --box-shadow: #262626;
 
 }

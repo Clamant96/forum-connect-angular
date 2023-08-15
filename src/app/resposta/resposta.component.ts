@@ -8,6 +8,7 @@ import { ComentarioResposta } from '../model/ComentarioResposta';
 import { PostagemService } from '../service/postagem.service';
 import { Postagem } from '../model/Postagem';
 import { UsuarioService } from '../service/usuario.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-resposta',
@@ -37,12 +38,17 @@ export class RespostaComponent implements OnInit {
     private respostaService: RespostaService,
     private comentarioRespostaService: ComentarioRespostaService,
     private postagemService: PostagemService,
-    private usuarioService: UsuarioService
+    private usuarioService: UsuarioService,
+    private router: Router
 
   ) { }
 
   ngOnInit() {
     window.scroll(0, 0);
+
+    if(environment.token == '') {
+      this.router.navigate(['/login']);
+    }
 
   }
 

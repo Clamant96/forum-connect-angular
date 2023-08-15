@@ -2,6 +2,7 @@ import { Component, EventEmitter, OnInit, Output } from '@angular/core';
 import { CategoriaService } from '../service/categoria.service';
 import { Categoria } from '../model/Categoria';
 import { environment } from 'src/environments/environment.prod';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-categoria',
@@ -20,12 +21,17 @@ export class CategoriaComponent implements OnInit {
   public isCadastrarCategoria: boolean = false;
 
   constructor(
-    private categoriaService: CategoriaService
+    private categoriaService: CategoriaService,
+    private router: Router
 
   ) { }
 
   ngOnInit() {
     window.scroll(0, 0);
+
+    if(environment.token == '') {
+      this.router.navigate(['/login']);
+    }
 
     this.getAllCategorias();
 

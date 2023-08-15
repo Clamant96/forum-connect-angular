@@ -2,7 +2,7 @@ import { RespostaService } from './../service/resposta.service';
 import { ComentarioService } from './../service/comentario.service';
 import { PostagemService } from './../service/postagem.service';
 import { Component, Input, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Postagem } from '../model/Postagem';
 import { Usuario } from '../model/Usuario';
 import { Categoria } from '../model/Categoria';
@@ -45,12 +45,17 @@ export class PostagemComponent implements OnInit {
     private postagemService: PostagemService,
     private usuarioService: UsuarioService,
     private comentarioService: ComentarioService,
-    private respostaService: RespostaService
+    private respostaService: RespostaService,
+    private router: Router
 
   ) { }
 
   ngOnInit() {
     window.scroll(0, 0);
+
+    if(environment.token == '') {
+      this.router.navigate(['/login']);
+    }
 
     /* RECEBE O NOVO ID DE ACORDO COM A OPCAO ESCOLHIDA PELO USUARIO AO ATUALIZAR O DADO DE TEMA */
     // this.id = this.route.snapshot.params['id'];

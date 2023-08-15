@@ -1,1 +1,39 @@
-<p>login works!</p>
+<section>
+  <div class="bloco">
+    <div class="email">
+      <label for="email">E-mail</label>
+      <input [(ngModel)]='userLogin.email' type="email" name="email" id="email" placeholder="Email" />
+    </div>
+    <div class="senha">
+      <label for="senha">Senha</label>
+      <input [(ngModel)]='userLogin.senha' type="password" name="senha" id="senha" placeholder="Senha" />
+    </div>
+    <div class="botao" (click)='entrar()' >Login</div>
+  </div>
+
+  <div id="hr"></div>
+
+  <div class="bloco bloco-cadastro">
+    <div class="nome">
+      <label for="nome">E-mail</label>
+      <input [(ngModel)]='usuario.nome' type="nome" name="nome" id="nome" placeholder="Nome" />
+    </div>
+    <div class="img">
+      <label for="img">IMG</label>
+      <input [(ngModel)]='usuario.img' type="img" name="img" id="img" placeholder="IMG" />
+    </div>
+    <div class="email">
+      <label for="email">E-mail</label>
+      <input [(ngModel)]='usuario.email' type="email" name="email" id="email" placeholder="Email" />
+    </div>
+    <div class="senha">
+      <label for="senha">Senha</label>
+      <input (input)='confirmeSenha($event)' type="password" name="senha" id="senha" placeholder="Senha" />
+    </div>
+    <div class="confirmar-senha">
+      <label for="confirmar-senha">Confirmar senha</label>
+      <input [(ngModel)]='usuario.senha' type="password" name="confirmar-senha" id="confirmar-senha" placeholder="Confirmar senha" />
+    </div>
+    <div class="botao" (click)='cadastrar()' >Cadastrar</div>
+  </div>
+</section>

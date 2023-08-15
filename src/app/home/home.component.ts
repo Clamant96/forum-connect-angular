@@ -6,6 +6,7 @@ import { UsuarioService } from '../service/usuario.service';
 import { PostagemService } from './../service/postagem.service';
 import { Component, OnInit } from '@angular/core';
 import { Categoria } from '../model/Categoria';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -39,12 +40,17 @@ export class HomeComponent implements OnInit {
   constructor(
     private postagemService: PostagemService,
     private usuarioService: UsuarioService,
-    private categoriaService: CategoriaService
+    private categoriaService: CategoriaService,
+    private router: Router
 
   ) { }
 
   ngOnInit() {
     window.scroll(0, 0);
+
+    if(environment.token == '') {
+      this.router.navigate(['/login']);
+    }
 
     this.getAllPostagens();
     this.getAllCategorias();
@@ -256,6 +262,15 @@ export class HomeComponent implements OnInit {
       },
       {
         descricao: "like em postagens, comentarios e respostas"
+      },
+      {
+        descricao: "login de usuario com a geração de token"
+      },
+      {
+        descricao: "validação de endpoints com token"
+      },
+      {
+        descricao: "cadastro de usuario"
       }
     ];
 

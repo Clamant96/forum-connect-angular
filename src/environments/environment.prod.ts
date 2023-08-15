@@ -6,5 +6,7 @@ export const environment = {
   nome: "clmkevin",
   senha: "",
   email: "",
-  img: "https://img.freepik.com/vetores-premium/homem-perfil-caricatura_18591-58482.jpg?w=2000"
+  img: "https://img.freepik.com/vetores-premium/homem-perfil-caricatura_18591-58482.jpg?w=2000",
+  token: ""
+
 };

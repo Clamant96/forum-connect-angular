@@ -1,0 +1,302 @@
+section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  width: 100%;
+  height: 100vh;
+
+  background-color: var(--background-color-login-gray);
+
+}
+
+section .bloco {
+  margin: 2%;
+
+  width: 20%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+
+  background-color: var(--background-color-default);
+
+  border-radius: 7px;
+
+}
+
+section .bloco-cadastro {
+  background-color: transparent !important;
+
+}
+
+section .bloco-cadastro .nome, section .bloco-cadastro .img, section .bloco-cadastro .email, section .bloco-cadastro .senha, section .bloco-cadastro .confirmar-senha {
+  width: 100% !important;
+  height: auto;
+
+}
+
+section .bloco-cadastro .botao {
+  width: 94% !important;
+  height: auto;
+
+}
+
+section .bloco .nome {
+  padding: 6% 7% 0% 7%;
+
+  width: 86%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+section .bloco .nome label {
+  padding: 0% 0% 2.5% 0%;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color: var(--text-color-black-menu-hover);
+
+}
+
+section .bloco .nome input {
+  width: 91.5%;
+  height: auto;
+
+  padding: 3.6%;
+
+  font-size: 12px;
+  font-weight: 100 !important;
+
+  border-radius: 3px;
+
+  border: 1px solid var(--background-color-black-footer);
+
+}
+
+section .bloco .nome input:focus {
+  outline: none;
+
+  border: 1px solid var(--button-border-right-hover-color);
+
+}
+
+section .bloco .img {
+  padding: 6% 7% 0% 7%;
+
+  width: 86%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+section .bloco .img label {
+  padding: 0% 0% 2.5% 0%;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color: var(--text-color-black-menu-hover);
+
+}
+
+section .bloco .img input {
+  width: 91.5%;
+  height: auto;
+
+  padding: 3.6%;
+
+  font-size: 12px;
+  font-weight: 100 !important;
+
+  border-radius: 3px;
+
+  border: 1px solid var(--background-color-black-footer);
+
+}
+
+section .bloco .img input:focus {
+  outline: none;
+
+  border: 1px solid var(--button-border-right-hover-color);
+
+}
+
+section .bloco .email {
+  padding: 6% 7% 0% 7%;
+
+  width: 86%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+section .bloco .email label {
+  padding: 0% 0% 2.5% 0%;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color: var(--text-color-black-menu-hover);
+
+}
+
+section .bloco .email input {
+  width: 91.5%;
+  height: auto;
+
+  padding: 3.6%;
+
+  font-size: 12px;
+  font-weight: 100 !important;
+
+  border-radius: 3px;
+
+  border: 1px solid var(--background-color-black-footer);
+
+}
+
+section .bloco .email input:focus {
+  outline: none;
+
+  border: 1px solid var(--button-border-right-hover-color);
+
+}
+
+section .bloco .senha {
+  padding: 6% 7% 0% 7%;
+
+  width: 86%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+section .bloco .senha label {
+  padding: 0% 0% 2.5% 0%;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color: var(--text-color-black-menu-hover);
+
+}
+
+section .bloco .senha input {
+  width: 91.5%;
+  height: auto;
+
+  padding: 3.6%;
+
+  font-size: 12px;
+  font-weight: 100 !important;
+
+  border-radius: 3px;
+
+  border: 1px solid var(--background-color-black-footer);
+
+}
+
+section .bloco .senha input:focus {
+  outline: none;
+
+  border: 1px solid var(--button-border-right-hover-color);
+
+}
+
+section .bloco .confirmar-senha {
+  padding: 6% 7% 0% 7%;
+
+  width: 86%;
+  height: auto;
+
+  display: flex;
+  align-items: flex-start;
+  flex-direction: column;
+  justify-content: center;
+
+}
+
+section .bloco .confirmar-senha label {
+  padding: 0% 0% 2.5% 0%;
+
+  font-size: 15px;
+  font-weight: 700;
+
+  color: var(--text-color-black-menu-hover);
+
+}
+
+section .bloco .confirmar-senha input {
+  width: 91.5%;
+  height: auto;
+
+  padding: 3.6%;
+
+  font-size: 12px;
+  font-weight: 100 !important;
+
+  border-radius: 3px;
+
+  border: 1px solid var(--background-color-black-footer);
+
+}
+
+section .bloco .confirmar-senha input:focus {
+  outline: none;
+
+  border: 1px solid var(--button-border-right-hover-color);
+
+}
+
+section .bloco .botao {
+  padding: 3%;
+  margin: 6% 0% 10% 0%;
+
+  width: 80%;
+  height: auto;
+
+  font-size: 15px;
+  font-weight: 300 !important;
+
+  color: var(--text-color-white);
+
+  background-color: var(--background-color-blue);
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  border-radius: 3px;
+
+  cursor: pointer;
+
+}
+
+section #hr {
+  width: 0.1px;
+  height: 25vh;
+
+  background-color: var(--background-color-black-footer);
+
+}
