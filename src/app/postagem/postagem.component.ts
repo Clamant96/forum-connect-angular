@@ -11,6 +11,7 @@ import { UsuarioService } from '../service/usuario.service';
 import { Comentario } from '../model/Comentario';
 import { Resposta } from '../model/Resposta';
 import { Markdown } from '../model/Markdown';
+import { marked } from 'marked';
 
 @Component({
   selector: 'app-postagem',
@@ -57,7 +58,7 @@ export class PostagemComponent implements OnInit {
       this.router.navigate(['/login']);
     }
 
-    /* RECEBE O NOVO ID DE ACORDO COM A OPCAO ESCOLHIDA PELO USUARIO AO ATUALIZAR O DADO DE TEMA */
+    //* RECEBE O NOVO ID DE ACORDO COM A OPCAO ESCOLHIDA PELO USUARIO AO ATUALIZAR O DADO DE TEMA */
     // this.id = this.route.snapshot.params['id'];
 
     this.getByIdPostagem(this.id);
