@@ -171,8 +171,6 @@ export class HomeComponent implements OnInit {
 
   calculaTempoPostagem(data: Date) {
 
-    console.log(data);
-
     let date_1: Date = new Date(data);
     let date_2: Date = new Date();
 

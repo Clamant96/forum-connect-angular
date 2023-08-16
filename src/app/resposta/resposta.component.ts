@@ -34,6 +34,8 @@ export class RespostaComponent implements OnInit {
 
   public qtdPostagensUsuario: number = 0;
 
+  public url: string = `${environment.server}${environment.port}`;
+
   constructor(
     private respostaService: RespostaService,
     private comentarioRespostaService: ComentarioRespostaService,
@@ -89,20 +91,23 @@ export class RespostaComponent implements OnInit {
   }
 
   calculaTempoPostagem(data: Date) {
+
     let date_1: Date = new Date(data);
     let date_2: Date = new Date();
 
-    if(date_1.getDay() == date_2.getDay()) {
+    // REALIZA O CALCULO EM MILESGUNDOS, CONVERTENDO EM DIAS
+
+    if(Number(((Math.abs((date_1.getTime() - date_2.getTime())) / 1000) / 86400).toString().split(".")[0]) == 0) {
 
       return this.diffTime(`${date_1.getHours()}:${date_1.getMinutes()}`, `${date_2.getHours()}:${date_2.getMinutes()}`);
     }else {
 
-      if((Math.abs(date_1.getDay() - date_2.getDay())) == 1) {
+      if(Number(((Math.abs((date_1.getTime() - date_2.getTime())) / 1000) / 86400).toString().split(".")[0]) == 1) {
 
-        return Math.abs(date_1.getDay() - date_2.getDay()) +" dia";
+        return ((Math.abs((date_1.getTime() - date_2.getTime())) / 1000) / 86400).toString().split(".")[0] +" dia";
       }
 
-      return Math.abs(date_1.getDay() - date_2.getDay()) +" dias";
+      return ((Math.abs((date_1.getTime() - date_2.getTime())) / 1000) / 86400).toString().split(".")[0] +" dias";
     }
 
   }
@@ -265,6 +270,16 @@ export class RespostaComponent implements OnInit {
     this.usuarioService.findByQtdPostagensIdUsuario(id).subscribe((resp: number) => {
       this.qtdPostagensUsuario = resp;
     });
+  }
+
+  carregaImagem(nome: string, img: string) {
+
+    if(nome == null || nome == '' || img == null || img == '') {
+      return 'assets/img/person_perfil_vazio.png';
+    }
+
+    return `${this.url}/image/carregar/${nome}/${img}`;
+
   }
 
 }

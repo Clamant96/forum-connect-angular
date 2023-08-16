@@ -51,7 +51,7 @@
               <div class="data">post {{this.calculaTempoPostagem(postagem.data)}}</div>
               <div class="conteudo-usuario">
                 <div class="img">
-                  <img [src]="this.renderizaUsuarioImg(postagem.usuario)" [alt]="this.renderizaUsuarioNome(postagem.usuario)" />
+                  <img [src]="this.carregaImagem(postagem.usuario.nome, postagem.usuario.img)" [alt]="postagem.usuario.nome" />
                 </div>
                 <div class="dados">
                   <a routerLink="" class="nome-perfil">{{this.renderizaUsuarioNome(postagem.usuario)}}</a>
