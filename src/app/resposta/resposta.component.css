@@ -625,4 +625,6 @@
 
   color: var(--text-color-gray-time);
 
+  min-width: 6%;
+
 }

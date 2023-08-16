@@ -720,6 +720,8 @@
 
   color: var(--text-color-gray-time);
 
+  min-width: 6%;
+
 }
 
 .bloco-postagem .bloco-lista .conteudo .anotacoes {
