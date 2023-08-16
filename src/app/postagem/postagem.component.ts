@@ -64,7 +64,7 @@ export class PostagemComponent implements OnInit {
     // this.id = this.route.snapshot.params['id'];
 
     this.getByIdPostagem(this.id);
-    /*this.registraVisualizacaoPostagem(this.id);*/
+    this.registraVisualizacaoPostagem(this.id);
 
   }
 
@@ -84,10 +84,10 @@ export class PostagemComponent implements OnInit {
 
   registraVisualizacaoPostagem(id: number) {
     this.postagemService.registraVisualizacao(id).subscribe((resp: boolean) => {
-      console.log("Visualizacao salva!");
+      // console.log("Visualizacao salva!");
 
     }, err => {
-      console.log("Ocorreu um erro ao salar a visualizacao.");
+      console.log("Ocorreu um erro ao salvar a visualizacao.");
 
     });
 
@@ -315,6 +315,15 @@ export class PostagemComponent implements OnInit {
       },
       {
         descricao: "like em postagens, comentarios e respostas"
+      },
+      {
+        descricao: "login de usuario com a geração de token"
+      },
+      {
+        descricao: "validação de endpoints com token"
+      },
+      {
+        descricao: "cadastro de usuario"
       }
     ];
 
@@ -392,13 +401,16 @@ export class PostagemComponent implements OnInit {
     return dados;
   }
 
-  carregaImagem(nome: string, img: string) {
+  carregaImagem(usuario: Usuario) {
 
-    if(nome == null || nome == '' || img == null || img == '') {
-      return 'assets/img/person_perfil_vazio.png';
-    }
+    try {
+      if(usuario.nome == null || usuario.nome == '' || usuario.img == null || usuario.img == '') {
+        return 'assets/img/person_perfil_vazio.png';
+      }
 
-    return `${this.url}/image/carregar/${nome}/${img}`;
+      return `${this.url}/image/carregar/${usuario.nome}/${usuario.img}`;
+
+    }catch{return 'assets/img/person_perfil_vazio.png';}
 
   }
 }

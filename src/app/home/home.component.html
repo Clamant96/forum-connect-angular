@@ -6,7 +6,7 @@
       <div class="fixo">PUBLICO</div>
       <div class="botao-menu" id="pergunta">Perguntas</div>
       <div class="botao-menu" id="categoria" (click)="this.selecionaCategoria()">Categorias</div>
-      <div class="botao-menu">Usuarios</div>
+      <div class="botao-menu" [routerLink]="['/editar-perfil', this.idUsuario]" >Usuarios</div>
     </div>
 
     <div class="bloco-lista-anotacao">

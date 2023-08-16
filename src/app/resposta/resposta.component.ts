@@ -272,13 +272,17 @@ export class RespostaComponent implements OnInit {
     });
   }
 
-  carregaImagem(nome: string, img: string) {
+  carregaImagem(usuario: Usuario) {
 
-    if(nome == null || nome == '' || img == null || img == '') {
-      return 'assets/img/person_perfil_vazio.png';
-    }
+    try {
 
-    return `${this.url}/image/carregar/${nome}/${img}`;
+      if(usuario.nome == null || usuario.nome == '' || usuario.img == null || usuario.img == '') {
+        return 'assets/img/person_perfil_vazio.png';
+      }
+
+      return `${this.url}/image/carregar/${usuario.nome}/${usuario.img}`;
+
+    }catch{return 'assets/img/person_perfil_vazio.png';}
 
   }
 
