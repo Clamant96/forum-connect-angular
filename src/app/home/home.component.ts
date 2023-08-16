@@ -37,6 +37,8 @@ export class HomeComponent implements OnInit {
 
   public habilitaMenuCategoria: boolean = false;
 
+  public url: string = `${environment.server}${environment.port}`;
+
   constructor(
     private postagemService: PostagemService,
     private usuarioService: UsuarioService,
@@ -336,6 +338,16 @@ export class HomeComponent implements OnInit {
     this.habilitaMenuCategoria = true;
 
     this.renderizaBotaoMenu();
+
+  }
+
+  carregaImagem(nome: string, img: string) {
+
+    if(nome == null || nome == '' || img == null || img == '') {
+      return 'assets/img/person_perfil_vazio.png';
+    }
+
+    return `${this.url}/image/carregar/${nome}/${img}`;
 
   }
 

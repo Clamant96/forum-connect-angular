@@ -12,6 +12,8 @@ import { RespostaComponent } from './resposta/resposta.component';
 import { HeaderComponent } from './header/header.component';
 import { LoginComponent } from './login/login.component';
 import { CategoriaComponent } from './categoria/categoria.component';
+import { ImageComponent } from './upload/image/image.component';
+import { PerfilComponent } from './editar/perfil/perfil.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { CategoriaComponent } from './categoria/categoria.component';
     RespostaComponent,
     HeaderComponent,
     LoginComponent,
-    CategoriaComponent
+    CategoriaComponent,
+    ImageComponent,
+    PerfilComponent
   ],
   imports: [
     BrowserModule,

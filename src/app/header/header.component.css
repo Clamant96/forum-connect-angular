@@ -45,6 +45,8 @@ header .bloco .usuario {
   align-items: center;
   justify-content: center;
 
+  cursor: pointer;
+
 }
 
 header .bloco .usuario img {

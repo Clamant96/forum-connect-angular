@@ -43,7 +43,7 @@
               </div>
               <div class="usuario">
                 <div class="img">
-                  <img [src]="postagem.usuario.img" [alt]="postagem.usuario.nome" />
+                  <img [src]="this.carregaImagem(postagem.usuario.nome, postagem.usuario.img)" [alt]="postagem.usuario.nome" />
                 </div>
                 <a routerLink="" class="nome-perfil">{{postagem.usuario.nome}}</a>
                 <div class="qtd-postagens">{{this.calculaQtdPostagensUsuario(postagem.usuario)}} <strong>{{this.renderizaPlural(postagem.usuario)}}</strong></div>

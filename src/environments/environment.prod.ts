@@ -7,6 +7,7 @@ export const environment = {
   senha: "",
   email: "",
   img: "https://img.freepik.com/vetores-premium/homem-perfil-caricatura_18591-58482.jpg?w=2000",
-  token: ""
+  token: "",
+  nomeUplaodImagem: ""
 
 };

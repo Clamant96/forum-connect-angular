@@ -10,7 +10,7 @@ import { UsuarioLogin } from '../model/UsuarioLogin';
 })
 export class UsuarioService {
 
-  public serverPort: string = `${environment.server}${environment.port}`
+  public serverPort: string = `${environment.server}${environment.port}`;
 
   /* CRIA UM TOKEN, PARA REALIZAR A AUTENTICACAO DO ENDPOINT, POR MEIO DO METODO Authorization, PASSANDO COMO PAREMTRO O TOKEN DO USUARIO LOGADO */
   autorizacao = {
@@ -53,12 +53,16 @@ export class UsuarioService {
 
   postUsuario(usuario: Usuario): Observable<Usuario> {
 
+    usuario.img = environment.nomeUplaodImagem;
+
     return this.http.post<Usuario>(`${this.serverPort}/usuario`, usuario, this.header("POST"));
   }
 
   putUsuario(usuario: Usuario): Observable<Usuario> {
 
-    return this.http.put<Usuario>(`${this.serverPort}/usuario`, usuario, this.header("PUT"));
+    usuario.img = environment.nomeUplaodImagem;
+
+    return this.http.put<Usuario>(`${this.serverPort}/usuario/atualizar`, usuario, this.header("PUT"));
   }
 
   deleteUsuario(id: number){
@@ -100,13 +104,6 @@ export class UsuarioService {
     });
 
     return this.http.post<Usuario>(`${this.serverPort}/usuario/cadastrar`, cadastro, { headers: reqHeader });
-  }
-
-  atualizar(atualizacao: Usuario): Observable<Usuario> {
-
-    // atualizacao.img = environment.nomeUplaodImagem;
-
-    return this.http.put<Usuario>(`${this.serverPort}/usuarios/atualizar`, atualizacao, this.header("PUT"));
   }
 
 }

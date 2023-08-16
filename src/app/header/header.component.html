@@ -3,8 +3,8 @@
     <div class="nome">
       Forum<strong>Connect</strong>
     </div>
-    <div class="usuario">
-      <img [src]="this.img" [alt]="this.nome">
+    <div class="usuario" [routerLink]="['/editar-perfil', this.id]" >
+      <img [src]="this.carregaImagem(this.nome, this.img)" [alt]="this.nome" />
     </div>
   </div>
 </header>

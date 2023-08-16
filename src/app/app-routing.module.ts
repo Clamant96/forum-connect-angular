@@ -4,6 +4,7 @@ import { HomeComponent } from './home/home.component';
 import { PostagemComponent } from './postagem/postagem.component';
 import { CategoriaComponent } from './categoria/categoria.component';
 import { LoginComponent } from './login/login.component';
+import { PerfilComponent } from './editar/perfil/perfil.component';
 
 const routes: Routes = [
   /* ACESSO VAZIO */
@@ -26,6 +27,9 @@ const routes: Routes = [
   },
   {
     path: 'categoria', component: CategoriaComponent
+  },
+  {
+    path: 'editar-perfil/:id', component: PerfilComponent
   }
 ];
 
