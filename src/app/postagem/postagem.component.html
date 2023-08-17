@@ -31,11 +31,21 @@
           </div>
 
           <div class="mensagem">
-            {{postagem.conteudo}}
-            <!--<div class="array-mensagem" *ngFor="let dado of this.renderizaMarkdown(postagem.conteudo)">
-              <p *ngIf="dado.tipo == 'texto'">{{dado.conteudo}}</p>
-              <textarea *ngIf="dado.tipo == 'codigo'" type="text" [(ngModel)]='dado.conteudo'></textarea>
-            </div>-->
+            <!--{{postagem.conteudo}}-->
+            <div class="msg-markdow" *ngFor="let conteudo of this.arrayConteudo">
+              <p *ngIf="this.verificaTab(conteudo.descricao) && !this.verificaTabDobrado(conteudo.descricao) && !this.verificaDadoVazio(conteudo.descricao)" class="tab" >
+                {{this.renderizadorTab(conteudo.descricao)}}
+              </p>
+              <p *ngIf="this.verificaTabDobrado(conteudo.descricao) && !this.verificaDadoVazio(conteudo.descricao)" class="tab-2" >
+                {{this.renderizadorTab(conteudo.descricao)}}
+              </p>
+              <p *ngIf="!this.verificaTab(conteudo.descricao) && !this.verificaDadoVazio(conteudo.descricao)">
+                {{conteudo.descricao}}
+              </p>
+              <p *ngIf="this.verificaDadoVazio(conteudo.descricao)">
+                <br/>
+              </p>
+            </div>
           </div>
         </div>
 

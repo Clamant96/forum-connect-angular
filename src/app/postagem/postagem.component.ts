@@ -12,6 +12,7 @@ import { Comentario } from '../model/Comentario';
 import { Resposta } from '../model/Resposta';
 import { Markdown } from '../model/Markdown';
 import { marked } from 'marked';
+import { Conteudo } from '../model/Conteudo';
 
 @Component({
   selector: 'app-postagem',
@@ -43,6 +44,8 @@ export class PostagemComponent implements OnInit {
 
   public url: string = `${environment.server}${environment.port}`;
 
+  public arrayConteudo: Conteudo[] = [];
+
   constructor(
     private route: ActivatedRoute,
     private postagemService: PostagemService,
@@ -72,6 +75,31 @@ export class PostagemComponent implements OnInit {
     this.postagemService.findByIdPostagem(id).subscribe((resp: Postagem) => {
       this.postagem = resp;
 
+      let memoria: string[] = this.postagem.conteudo.split("\n");
+      let cont: number = 0;
+
+      let conteudo: Conteudo = new Conteudo();
+
+      memoria.map((item) => {
+
+        conteudo.id = cont;
+
+        if(item.includes("\t")) {
+          conteudo.descricao = `[TAB]${item}`;
+
+        }else {
+          conteudo.descricao = item;
+
+        }
+
+        this.arrayConteudo.push(conteudo);
+
+        cont++;
+
+        conteudo = new Conteudo();
+
+      });
+
       // CARREGA A QTD DE POSTAGENS DO USUARIO
       this.usuarioService.findByIdUsuario(resp.usuario.id).subscribe((respUser: Usuario) => {
         this.postagem.usuario = respUser;
@@ -80,6 +108,39 @@ export class PostagemComponent implements OnInit {
 
     });
 
+  }
+
+  renderizadorTab(dado: string) {
+
+    let retorno: string = "";
+
+    retorno = dado.split("[TAB]")[1];
+
+    if(retorno == "\t") {
+      retorno = "";
+    }
+
+    return retorno;
+  }
+
+  verificaTab(dado: string) {
+    return dado.includes("[TAB]");
+  }
+
+  verificaTabDobrado(dado: string) {
+    return dado.includes("[TAB]\t\t");
+  }
+
+  verificaDadoVazio(dado: string) {
+
+    let retorno: boolean = false;
+
+    if(dado.split("[TAB]")[1] == "\t") {
+      retorno = true;
+
+    }
+
+    return retorno;
   }
 
   registraVisualizacaoPostagem(id: number) {
