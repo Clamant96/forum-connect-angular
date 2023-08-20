@@ -303,6 +303,8 @@ export class HomeComponent implements OnInit {
   habilitaCampoAdicionarPostagem() {
     this.isAdicionarPostagem = !this.isAdicionarPostagem;
 
+    this.getAllCategorias();
+
   }
 
   publicarPostagem() {
