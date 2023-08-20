@@ -9,6 +9,7 @@ import { PostagemService } from '../service/postagem.service';
 import { Postagem } from '../model/Postagem';
 import { UsuarioService } from '../service/usuario.service';
 import { Router } from '@angular/router';
+import { Conteudo } from '../model/Conteudo';
 
 @Component({
   selector: 'app-resposta',
@@ -36,6 +37,8 @@ export class RespostaComponent implements OnInit {
 
   public url: string = `${environment.server}${environment.port}`;
 
+  public arrayConteudo: Conteudo[] = [];
+
   constructor(
     private respostaService: RespostaService,
     private comentarioRespostaService: ComentarioRespostaService,
@@ -52,6 +55,11 @@ export class RespostaComponent implements OnInit {
       this.router.navigate(['/login']);
     }
 
+  }
+
+  verficarObjetoResposta(resposta: Resposta[]) {
+
+    return resposta;
   }
 
   registraAvaliacaoPostagem(id: number, status: string) {
@@ -260,7 +268,17 @@ export class RespostaComponent implements OnInit {
     this.postagemService.findByIdPostagem(id).subscribe((resp: Postagem) => {
       this.postagem = resp;
 
-      this.respostas = this.postagem.respostas;
+      // CARREGA OS DADOS DE RESPOSTA DA POSTAGEM
+      this.respostaService.findAllRespostasByIdPostagem(resp.id).subscribe((respResposta: Resposta[]) => {
+        this.postagem.respostas = respResposta;
+
+        // ADICIONA O COMENTARIO NA REPOSTA ATUALIZANDO OS DADOS NA TELA
+        this.respostas = respResposta;
+
+      }, err => {
+        console.log("Ocorreu um erro ao tentar carregar os comentarios da postagem.");
+
+      });
 
     });
 
@@ -284,6 +302,70 @@ export class RespostaComponent implements OnInit {
 
     }catch{return 'assets/img/person_perfil_vazio.png';}
 
+  }
+
+  ajustaMarkdownPostagem(dado: string) {
+    this.arrayConteudo = [];
+
+    let memoria: string[] = dado.split("\n");
+      let cont: number = 0;
+
+      let conteudo: Conteudo = new Conteudo();
+
+      memoria.map((item) => {
+
+        conteudo.id = cont;
+
+        if(item.includes("\t")) {
+          conteudo.descricao = `[TAB]${item}`;
+
+        }else {
+          conteudo.descricao = item;
+
+        }
+
+        this.arrayConteudo.push(conteudo);
+
+        cont++;
+
+        conteudo = new Conteudo();
+
+      });
+
+    return this.arrayConteudo;
+  }
+
+  renderizadorTab(dado: string) {
+
+    let retorno: string = "";
+
+    retorno = dado.split("[TAB]")[1];
+
+    if(retorno == "\t") {
+      retorno = "";
+    }
+
+    return retorno;
+  }
+
+  verificaTab(dado: string) {
+    return dado.includes("[TAB]");
+  }
+
+  verificaTabDobrado(dado: string) {
+    return dado.includes("[TAB]\t\t");
+  }
+
+  verificaDadoVazio(dado: string) {
+
+    let retorno: boolean = false;
+
+    if(dado.split("[TAB]")[1] == "\t") {
+      retorno = true;
+
+    }
+
+    return retorno;
   }
 
 }

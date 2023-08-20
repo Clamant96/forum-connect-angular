@@ -3,6 +3,7 @@ import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment.prod';
 import { Resposta } from '../model/Resposta';
+import { Postagem } from '../model/Postagem';
 
 @Injectable({
   providedIn: 'root'
@@ -36,6 +37,11 @@ export class RespostaService {
   findByIdResposta(id: number): Observable<Resposta> {
 
     return this.http.get<Resposta>(`${this.serverPort}/resposta/${id}`, this.header("GET"));
+  }
+
+  findAllRespostasByIdPostagem(id: number): Observable<Resposta[]> {
+
+    return this.http.get<Resposta[]>(`${this.serverPort}/resposta/postagem/${id}`, this.header("GET"));
   }
 
   registraAvaliacao(id: number, status: string): Observable<number> {

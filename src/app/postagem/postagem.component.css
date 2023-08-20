@@ -689,6 +689,7 @@
 .bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .comentario .conteudo-usuario-data .conteudo-comentario {
   display: flex;
   align-items: center;
+  flex-direction: column;
   justify-content: flex-start;
 
   font-size: 13px;
@@ -699,6 +700,26 @@
   margin-right: 0.5%;
 
   max-width: 85%;
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .comentario .conteudo-usuario-data .conteudo-comentario .msg-markdow {
+  width: 100%;
+  height: auto;
+
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .comentario .conteudo-usuario-data .conteudo-comentario .msg-markdow .tab {
+  margin-left: 10%;
+
+}
+
+.bloco-postagem .bloco-lista .conteudo .dados-msg .bloco-comentarios .comentario .conteudo-usuario-data .conteudo-comentario .msg-markdow .tab-2 {
+  margin-left: 15%;
 
 }
 

@@ -106,7 +106,24 @@
               </div>
             </div>
             <div class="conteudo-usuario-data">
-              <div class="conteudo-comentario">{{comentario.conteudo}}</div>
+              <div class="conteudo-comentario">
+
+                <div class="msg-markdow" *ngFor="let conteudo of this.ajustaMarkdownPostagemComentario(comentario.conteudo)">
+                  <p *ngIf="this.verificaTab(conteudo.descricao) && !this.verificaTabDobrado(conteudo.descricao) && !this.verificaDadoVazio(conteudo.descricao)" class="tab" >
+                    {{this.renderizadorTab(conteudo.descricao)}}
+                  </p>
+                  <p *ngIf="this.verificaTabDobrado(conteudo.descricao) && !this.verificaDadoVazio(conteudo.descricao)" class="tab-2" >
+                    {{this.renderizadorTab(conteudo.descricao)}}
+                  </p>
+                  <p *ngIf="!this.verificaTab(conteudo.descricao) && !this.verificaDadoVazio(conteudo.descricao)">
+                    {{conteudo.descricao}}
+                  </p>
+                  <p *ngIf="this.verificaDadoVazio(conteudo.descricao)">
+                    <br/>
+                  </p>
+                </div>
+
+              </div>
               <div class="divisao"> – </div>
               <div class="usuario">{{comentario.usuario.nome}}</div>
               <div class="data">{{this.calculaTempoPostagem(comentario.data)}}</div>

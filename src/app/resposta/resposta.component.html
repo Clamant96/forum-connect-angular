@@ -1,4 +1,4 @@
-<div *ngFor="let resposta of this.respostas" class="conteudo">
+<div *ngFor="let resposta of this.verficarObjetoResposta(this.respostas)" class="conteudo">
 
   <div class="dados-msg">
     <div class="bloco-mensagem">
@@ -19,7 +19,20 @@
       </div>
 
       <div class="mensagem">
-        {{resposta.conteudo}}
+        <div class="msg-markdow" *ngFor="let conteudo of this.ajustaMarkdownPostagem(resposta.conteudo)">
+          <p *ngIf="this.verificaTab(conteudo.descricao) && !this.verificaTabDobrado(conteudo.descricao) && !this.verificaDadoVazio(conteudo.descricao)" class="tab" >
+            {{this.renderizadorTab(conteudo.descricao)}}
+          </p>
+          <p *ngIf="this.verificaTabDobrado(conteudo.descricao) && !this.verificaDadoVazio(conteudo.descricao)" class="tab-2" >
+            {{this.renderizadorTab(conteudo.descricao)}}
+          </p>
+          <p *ngIf="!this.verificaTab(conteudo.descricao) && !this.verificaDadoVazio(conteudo.descricao)">
+            {{conteudo.descricao}}
+          </p>
+          <p *ngIf="this.verificaDadoVazio(conteudo.descricao)">
+            <br/>
+          </p>
+        </div>
       </div>
     </div>
 
@@ -56,7 +69,6 @@
 
     <div class="bloco-comentarios">
       <hr *ngIf="this.renderizaHR(resposta)" />
-
       <div class="comentario" *ngFor="let comentario of resposta.comentarios">
         <div class="bloco-mensagem">
           <div class="gostei">

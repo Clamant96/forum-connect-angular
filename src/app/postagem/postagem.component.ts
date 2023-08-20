@@ -11,7 +11,6 @@ import { UsuarioService } from '../service/usuario.service';
 import { Comentario } from '../model/Comentario';
 import { Resposta } from '../model/Resposta';
 import { Markdown } from '../model/Markdown';
-import { marked } from 'marked';
 import { Conteudo } from '../model/Conteudo';
 
 @Component({
@@ -75,7 +74,31 @@ export class PostagemComponent implements OnInit {
     this.postagemService.findByIdPostagem(id).subscribe((resp: Postagem) => {
       this.postagem = resp;
 
-      let memoria: string[] = this.postagem.conteudo.split("\n");
+      this.ajustaMarkdownPostagem(this.postagem.conteudo);
+
+      // CARREGA A QTD DE POSTAGENS DO USUARIO
+      this.usuarioService.findByIdUsuario(resp.usuario.id).subscribe((respUser: Usuario) => {
+        this.postagem.usuario = respUser;
+
+      });
+
+      // CARREGA OS DADOS DE RESPOSTA DA POSTAGEM
+      this.respostaService.findAllRespostasByIdPostagem(resp.id).subscribe((respResposta: Resposta[]) => {
+        this.postagem.respostas = respResposta;
+
+      }, err => {
+        console.log("Ocorreu um erro ao tentar carregar os comentarios da postagem.");
+
+      });
+
+    });
+
+  }
+
+  ajustaMarkdownPostagem(dado: string) {
+    this.arrayConteudo = [];
+
+    let memoria: string[] = dado.split("\n");
       let cont: number = 0;
 
       let conteudo: Conteudo = new Conteudo();
@@ -100,14 +123,37 @@ export class PostagemComponent implements OnInit {
 
       });
 
-      // CARREGA A QTD DE POSTAGENS DO USUARIO
-      this.usuarioService.findByIdUsuario(resp.usuario.id).subscribe((respUser: Usuario) => {
-        this.postagem.usuario = respUser;
+  }
+
+  ajustaMarkdownPostagemComentario(dado: string) {
+    let retorno: Conteudo[] = [];
+
+    let memoria: string[] = dado.split("\n");
+      let cont: number = 0;
+
+      let conteudo: Conteudo = new Conteudo();
+
+      memoria.map((item) => {
+
+        conteudo.id = cont;
+
+        if(item.includes("\t")) {
+          conteudo.descricao = `[TAB]${item}`;
+
+        }else {
+          conteudo.descricao = item;
+
+        }
+
+        retorno.push(conteudo);
+
+        cont++;
+
+        conteudo = new Conteudo();
 
       });
 
-    });
-
+    return retorno;
   }
 
   renderizadorTab(dado: string) {
@@ -189,6 +235,8 @@ export class PostagemComponent implements OnInit {
     this.postagemService.putConteudoPostagem(this.postagem).subscribe((resp: boolean) => {
       this.isEditarPostagem = false; //FECHA A ABA DE EDICAO DE POSTAGEM
 
+      this.ajustaMarkdownPostagem(this.postagem.conteudo);
+
     }, err => {
       console.log("Ocorreu um erro ao tentar atualizar a postagem.");
 
@@ -239,10 +287,10 @@ export class PostagemComponent implements OnInit {
 
     this.resposta.postagem = post;
     this.resposta.usuario = usuarioLogado;
-    this.resposta.conteudo = this.memoriaConteudoResposta.replace('\n\t', '').replace('\n\t\t', '').replace('\n', '').replace('\t', '');
-    this.resposta.titulo = this.memoriaConteudoResposta.replace('\n\t', '').replace('\n\t\t', '').replace('\n', '').replace('\t', '');
-
-    console.log(this.memoriaConteudoResposta.replace('\n\t', '').replace('\n\t\t', '').replace('\n', '').replace('\t', ''));
+    // this.resposta.conteudo = this.memoriaConteudoResposta.replace('\n\t', '').replace('\n\t\t', '').replace('\n', '').replace('\t', '');
+    // this.resposta.titulo = this.memoriaConteudoResposta.replace('\n\t', '').replace('\n\t\t', '').replace('\n', '').replace('\t', '');
+    this.resposta.conteudo = this.memoriaConteudoResposta;
+    this.resposta.titulo = this.memoriaConteudoResposta;
 
     this.respostaService.postResposta(this.resposta).subscribe((resp: Resposta) => {
       this.getByIdPostagem(postagem.id);
